@@ -3,35 +3,40 @@
     <head>
         <title>Color Base</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+		<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <!-- header -->
-        <header class="flex-container">
-            <img src="logo-symbol.svg" alt="logo" class="logo"/>
-			<!-- search bar -->
-			<form class="search-bar">
+    <body class="outer-grid-container">
+		
+		<!-- header -->
+		<header class="header-cell header-container border">
+			<img src="logo-symbol.svg" alt="logo" class="logo header-left"/>
+			<form class="search-bar header-right">
 				<input type="text"/>
 				<button type="submit">Search</button> 
 			</form>
-        </header>
-        <!-- main body -->
-        <div>
-			<button id="newChipButton">Click Me</button>
-            <div class="flex-container" id="listView">
-                <div class="flex-item box">
-                    <div class="swatch-color red"></div>
-                    <p class="swatch-name">#f79792</p>
-                </div>
-                <div class="flex-item box">
-                    <div class="swatch-color green"></div>
-                    <p class="swatch-name">#89d98a</p>
-                </div>
-                <div class="flex-item box">
-                    <div class="swatch-color blue"></div>
-                    <p class="swatch-name">#95dce8</p>
-                </div>
-            </div>
-        </div>
+		</header>
+		
+		<!-- sidebar -->
+		<div class="sidebar-cell border">
+			<button id="newColorButton">New Color</button>
+			<nav class="sidebar-nav">
+				<a href="/red/">Red</a>
+				<a href="/orange/">Orange</a>
+				<a href="/yellow/">Yellow</a>
+				<a href="/green/">Green</a>
+				<a href="/blue/">Blue</a>
+				<a href="/purple/">Purple</a>
+				<a href="/brown/">Brown</a>
+				<a href="/grey/">Grey</a>
+			</nav>
+		</div>
+		<div class="main-cell inner-grid-container">
+			<!-- red: #f79792; green: #89d98a; blue: #95dce8 -->
+			<div class="list-view-card-cell">
+				<div class="card-swatch"></div>
+				<div class="card-hex-id"></div>
+			</div>
+		</div>
         <script src="main.js" type="text/javascript"/>
     </body>
 </html>

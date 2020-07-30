@@ -1,44 +1,124 @@
-header {
-    background-color: #414158;
-	display:flex;
-	justify-content: space-between;
-	align-items: center;
-	padding:30px 10%;
+body {
+	font-family: 'Source Serif Pro', serif;
+}
+
+.outer-grid-container {
+	display:grid;
+	grid-template-columns: 200px; auto;
+	grid-template-areas:
+		"header header"
+		"sidebar main";
+}
+
+/* outer grid template area */
+.header-cell { grid-area: header; }
+.main-cell { grid-area: main; }
+.sidebar-cell {
+	grid-area: sidebar;
+}
+
+/* header layout */
+.header-container {
+	display:block;
+	height: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	
+	background-color: #363c3c;
 }
 
 .logo {
-	order:1;
-	margin-right:auto;
-    height: 40px;
+	display: inherit;
+	height: 35px;
+	float:left;
+	margin-top: 8px;
+	margin-bottom: 8px;
 }
 
 .search-bar {
-	order:2;
-	align-content:right;
+	display: inherit;
+	float:right;
+	vertical-align: middle;
+	margin-top: 13px;
 }
 
-.box {
-    border:1px #ccc solid;
-    border-radius:10px;
-    box-shadow:1px 1px 2px #e6e6e6;
+.header-left {
+	
 }
+
+.header-right {
+	
+}
+
+/* sidebar */
+.sidebar-cell {
+	display:block;
+	background-color:#d6d8d8;
+	height:inherit;
+}
+
+#newColorButton {
+	display: block;
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	padding: 10px;
+	
+	/* border */
+	border:1px #ccc solid;
+	box-shadow:1px 1px 2px #e6e6e6;
+	border-radius: 7px;
+	
+	/* font */
+	font-family: inherit;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.sidebar-nav {
+	margin-top: 10px;
+	padding-left: 7px;
+	width: inherit;
+}
+
+.sidebar-nav a {
+	color: black;
+	display: block;
+	padding: 12px;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+/* main layout */
 
 .flex-container {
     margin-top:10px;
     display:flex;
-    flex-wrap: wrap;
     justify-content:flex-start;
+	flex-direction:row;
 }
 
+.grid-container {
+	display: grid;
+	justify-content: space-between;
+	justify-items: center;
+	align-items: center;
+	grid-gap: 1rem;
+}
 
-.flex-item {
-    display:flex;
+.grid-cell {
+	display:flex;
     flex-direction: column;
     min-width: 150px;
+	max-width: 200px;
 	width:30%;
     margin:10px;
     align-content: center;
     overflow:auto;
+	
+	
+    
 }
 
 .swatch-color {
@@ -49,6 +129,15 @@ header {
     font-size:15px;
     margin-left:10%;
     justify-content: center;
+}
+
+.border {
+	border:1px #ccc solid;
+	box-shadow:1px 1px 2px #e6e6e6;
+}
+
+.border-round {
+    border-radius:10px;
 }
 
 .red { background-color:#f79792; }
