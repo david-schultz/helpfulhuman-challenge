@@ -18,7 +18,10 @@
 		
 		<!-- sidebar -->
 		<div class="sidebar-cell border">
-			<button id="newColorButton">New Color</button>
+			<button id="newColorButton">load</button>
+            <button id="clearGridButton">Clear Grid</button>
+            <button id="randPageButton">Random Page</button>
+			
 			<nav class="sidebar-nav">
 				<a href="/red/">Red</a>
 				<a href="/orange/">Orange</a>
@@ -29,14 +32,16 @@
 				<a href="/brown/">Brown</a>
 				<a href="/grey/">Grey</a>
 			</nav>
+			<div class="sidebar-spacer"></div>
 		</div>
-		<div class="main-cell inner-grid-container">
-			<!-- red: #f79792; green: #89d98a; blue: #95dce8 -->
-			<div class="list-view-card-cell">
-				<div class="card-swatch"></div>
-				<div class="card-hex-id"></div>
-			</div>
-		</div>
+		<!-- primary grid -->
+         <div class="main-cell">
+              <div class="inner-grid-container" id="innerGrid">
+			  </div>
+			  <div class="page-nav" id="cardNav">
+				   
+			  </div>
+         </div>
         <script src="main.js" type="text/javascript"/>
     </body>
 </html>

@@ -1,0 +1,17 @@
+<div class="main-cell inner-grid-container" id="innerGrid">
+			<!-- red: #f79792; green: #89d98a; blue: #95dce8 -->
+			<div class="grid-cell border border-round">
+				<div class="card-swatch red"></div>
+				<div class="card-hex-code">#f79792</div>
+			</div>
+			
+			<div class="grid-cell border border-round">
+				<div class="card-swatch green"></div>
+				<div class="card-hex-code">#89d98a</div>
+			</div>
+			
+			<div class="grid-cell border border-round">
+				<div class="card-swatch blue"></div>
+				<div class="card-hex-code">#95dce8</div>
+			</div>
+		</div>
