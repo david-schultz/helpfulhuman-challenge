@@ -10,6 +10,8 @@ const itemsPerPage = 12;
 let curPage = 1;
 let isLoaded = false;
 
+const nav = document.querySelector("#cardNav");
+
 function getItemCount() {
 	 return cardList.length;
 }
@@ -34,35 +36,15 @@ clearGridButton.addEventListener("click", () => {
 	 curPage = 1;
 });
 
-prevPageButton.addEventListener("click", () => {
-	 if(curPage != 1) {
-	 console.log('previous page');
-		  clearPage();
-		  loadPage(curPage-1);
-	 }
-	 console.log("curPage:" + String(curPage));
-});
-
-nextPageButton.addEventListener("click", () => {
-	 const totalPages = getPageCount();
-	 //console.log("Item Count:" + String(getItemCount()));
-	 //console.log("Total Pages:" + String(totalPages));
-	 if(curPage != totalPages) {
-		  console.log('next page');
-		  clearPage();
-		  loadPage(curPage+1);
-	 }
-	 console.log("curPage:" + String(curPage));
-});
-
 function load() {
 	 if(isLoaded === true) {
 		  return;
 	 }
 	 isLoaded = true;
      initArray(50);
-	 loadPage(1);
 	 initNavigation();
+	 loadPage(1);
+	nav.children[0].style.textDecoration = "underline";
 }
 
 
@@ -71,7 +53,6 @@ function load() {
 
 function initNavigation() {
 	 console.log("initializing navigation links");
-	 const nav = document.querySelector("#cardNav");
 	 console.log(nav.textContent);
 	 for (let i = 0; i < getPageCount(); i++) {
 		  const navLink = document.createElement("a");
@@ -94,7 +75,6 @@ function initNavigation() {
 }
 
 function removeNavDecoration() {
-	 const nav = document.querySelector("#cardNav");
 	 const children = nav.children;
 	 for (let i = 0; i < children.length; i++) {
 		  const navLink = children[i];
@@ -158,10 +138,18 @@ function newCard(hexCode) {
 	cardSwatch.style.backgroundColor = hexCode;	
 	
 	// Create the chip's hexadecimal text
-	const cardText = document.createElement("div");
+	const cardText = document.createElement("span");
 	cardText.id = hexCode;
 	cardText.textContent = hexCode;
 	cardText.className = "card-hex-code";
+	
+	// Edit/Save Button
+	const editButton = document.createElement("button");
+	editButton.className = "edit-button";
+	editButton.textContent = String.fromCharCode(9998);
+	cardText.appendChild(editButton);
+	
+	//const saveButton = document.createElement("button");
 	
 	// Append swatch + text to chip
 	card.appendChild(cardSwatch);
@@ -172,6 +160,71 @@ function newCard(hexCode) {
 	
 	return card;
 }
+
+// Color Card Buttons
+innerGridContainer.addEventListener('click', (e) => {
+	if(e.target.tagName === 'BUTTON') {
+		const button = e.target;  
+	  	const textElement = button.parentNode;
+		const card = textElement.parentNode;
+		const cardSwatch = card.children[0];
+	  	if(button.className === 'edit-button') {
+			//span -> input
+			const input = document.createElement('input');
+			const text = textElement.textContent.toLowerCase;
+			input.type = 'text';
+			input.value = text;
+			card.insertBefore(input, textElement);
+			card.removeChild(textElement);
+			//editbutton -> savebutton
+			button.className = 'save-button';
+			button.textContent = String.fromCharCode(10003);
+		} else if(button.className === 'save-button') {
+			const text = textElement.value.toLowerCase;
+			//check input is valid
+			if(!isHexValid(text)) {
+			   //not valid, then make red outline
+			   
+			} else {
+				//input -> span
+				const span = document.createElement('span');
+				span.textContent = textElement.value;
+				card.insertBefore(span, textElement);
+				card.removeChild(textElement);
+				
+				const hexCode = text;
+				if(hexCode.substr(0,1) !== '#') {
+					hexCode = "#" + hexCode;
+				}
+				//swatchColor = input
+				cardSwatch.style.backgroundColor = hexCode;
+				//savebutton ->editbutton
+				button.className = 'edit-button';
+				button.textContent = String.fromCharCode(9998);
+			}
+		}
+	}
+});
+
+function isHexValid(hexCode) {
+	let hex = hexCode;
+	if (hexCode.substr(0,1) === '#') {
+		hex = hexCode.substr(1,hexCode.length);	
+	}
+	for(let i = 0; i < 6; i++) {
+		let char = hex.charAt(i);
+		if(isNaN(parseInt(char))) {
+			char = char.toLowerCase();
+			let charValue = char.charCodeAt(0);
+			if(charValue < 97 || charValue > 102) {
+				return false;	
+			}
+		}
+	}
+	return true;
+}
+
+
 
 /* THINKING:
 	Need to create an array containing all color cards--we can add color cards to that array.

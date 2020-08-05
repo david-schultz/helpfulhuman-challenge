@@ -15,3 +15,57 @@
 				<div class="card-hex-code">#95dce8</div>
 			</div>
 		</div>
+          
+//css
+.grid-container {
+	display: grid;
+	justify-content: space-between;
+	justify-items: center;
+	align-items: center;
+	grid-gap: 1rem;
+	
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-cell {
+	display:flex;
+    flex-direction: column;
+    min-width: 150px;
+	max-width: 200px;
+	width:30%;
+    margin:10px;
+    align-content: center;
+    overflow:auto; 
+}
+
+/* color cards */
+
+.card-swatch {
+    height:100px;
+}
+
+.card-hex-code{
+    font-size:15px;
+    margin-left:10%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+    justify-content: center;
+}
+
+.border {
+	border:1px #ccc solid;
+	box-shadow:1px 1px 2px #e6e6e6;
+}
+
+.border-round {
+    border-radius:10px;
+}
+
+.red { background-color:#f79792; }
+
+.green { background-color:#89d98a; }
+
+.blue { background-color:#95dce8; }
+
+
+//javascript
