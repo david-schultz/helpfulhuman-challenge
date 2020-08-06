@@ -111,7 +111,7 @@ body {
 	flex-direction:row;
 }
 
-.inner-grid-container {
+.list-view-container {
 	display: grid;
 	justify-content: space-between;
 	justify-items: center;
@@ -143,9 +143,14 @@ body {
 
 /* color cards */
 
-.card-swatch {
+.card-swatch-list {
     height:100px;
 	width:inherit;
+}
+
+.card-swatch-detail {
+	height: 200px;
+	width: inherit; /* should be full width*/
 }
 
 .card-hex-code{
@@ -165,7 +170,9 @@ body {
     border-radius:10px;
 }
 
-
+.detail-card {
+	grid-area: "detail-card";
+}
 
 /*TODO*/
 .edit-button {

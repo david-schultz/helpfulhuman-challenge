@@ -1,18 +1,195 @@
-const innerGridContainer = document.getElementById("innerGrid");
+const outerContainer = document.getElementById('outerContainer');
+const mainContainer = document.getElementById('mainContainer');
+const nav = document.querySelector("#cardNav");
 const newColorButton = document.getElementById("newColorButton");
 const clearGridButton = document.getElementById("clearGridButton");
 const randPageButton = document.getElementById("randPageButton");
-const prevPageButton = document.getElementById("prevPageButton");
-const nextPageButton = document.getElementById("nextPageButton");
 
 const cardList = new Array();
 const itemsPerPage = 12;
 let curPage = 1;
 let isLoaded = false;
+
+// View Switching
 let overallView = "list";
 let curCard = null;
+const listViewContainer = createListViewContainer();		// change name to listViewContainer
+const detailViewContainer = createDetailViewContainer();
+mainContainer.insertBefore(listViewContainer, nav);
 
-const nav = document.querySelector("#cardNav");
+let cardListPosition = -1;
+
+function createListViewContainer() {
+	const container = document.createElement("div");
+	container.className = "list-view-container"; 	// "list-view-container"
+	container.id = "listContainer";	
+	return container;
+}
+
+function createDetailViewContainer() {
+	const container = document.createElement("div");
+	container.className = "detail-view-container";
+	container.id = "detailContainer";
+	//append back button
+	const backButton = document.createElement('button');
+	backButton.id = "backButton";
+	container.appendChild(backButton);
+	return container;
+}
+
+
+
+
+
+/* Swatch view change */
+listViewContainer.addEventListener('click', (e) => {
+    const swatch = e.target;
+	if(swatch.className === 'card-swatch-detail') {
+		console.log("Fatal error! Detail class within list view.");
+	}
+	if(swatch.className === 'card-swatch-list') {
+		switchViews(swatch.parentElement);
+	}
+});
+
+detailViewContainer.addEventListener("click", (e) => {
+	const targetName = e.target.className;
+	if(e.target.id === "backButton") {
+		switchViews(e.target.parentElement.children[0]);
+	} else if (targetName === "card-swatch-detail") {
+		switchViews(e.target.parentElement);
+	} else if  (targetName === "card-swatch-tint") {
+		switchViews(e.target.parentElement);
+	}
+});
+
+
+function switchViews(card) {
+	if (overallView === "list") {
+		overallView = "detail";
+		curCard = card;
+		cardListPosition = getCardListPosition(card);
+		switchViewClass(curCard);
+		loadDetailView(curCard);
+	} else {
+		// need to replace the previous card in list view
+        
+
+		if(card.id === curCard.id) {
+			overallView = "list";
+			switchViewClass(curCard);
+			//curCard = null; //TODO: double check this is correct.
+			loadListView(curCard);
+		} else {
+			switchViewClass(curCard);
+            replaceListCard();
+			//curCard = card;
+			//switchViewClass(curCard);
+			//loadDetailView(curCard);
+            switchViewClass(card);
+            loadDetailView(card);
+		}
+	}
+	//console.log('swapped to ' + overallView + ' view');
+	//console.log('current card: ' + curCard.id);
+}
+
+function replaceListCard() {
+    const children = listViewContainer.children;
+    if (!listViewContainer.contains(curCard)) {
+        if(cardListPosition === children.length) {
+            listViewContainer.appendChild(curCard);
+        } else {
+            const refNode = children[cardListPosition];
+            listViewContainer.insertBefore(curCard, refNode);    
+        }
+    }
+}
+
+function switchViewClass(card) {
+	if (curCard.classList.contains("list")) {
+		curCard.classList.remove("list");
+		curCard.classList.add("detail");
+		//console.log("replaced w/ detail");
+	} else if (curCard.classList.contains("detail")) {
+		curCard.classList.remove("detail");
+		curCard.classList.add("list");
+		//console.log("replaced w/ list");
+	} else if (curCard.classList.contains("tint")) {
+		curCard.classList.remove("tint");
+		curCard.classList.add("detail");
+	}
+}
+
+function loadListView(card) {
+	//todo: load list view to specific page of color from detail view
+	//remove cards from detailViewContainer
+    
+	card.children[0].className = "card-swatch-list";
+    replaceListCard();
+	
+	
+	
+	mainContainer.removeChild(detailViewContainer);
+	mainContainer.insertBefore(listViewContainer, nav);
+	
+	
+}
+
+function loadDetailView(card) {
+	const backButton = detailViewContainer.children[0];
+	
+	card.children[0].className = "card-swatch-detail";
+	detailViewContainer.insertBefore(card, backButton);
+	
+	/*
+	const tintContainer = document.createElement("div");
+	tintContainer.className = "tint-container";
+	//define hexCode in relation to curCard.id
+	const curHexCode = card.id;
+	//configure tint cards
+	for(let i = 0; i < 4; i++) {
+		//involve HSL -- change only saturation and light
+		// first two tints should be decreased S&L
+		// last two tints should be increased S&L
+		const tintHexCode = curHexCode;
+		const tintCard = newCard(tintHexCode);
+		tintCard.className = "card-swatch-tint";
+		tintContainer.appendChild(tintCard);
+	}
+	//if there is room
+	// creates a new card (of main card), and adds to middle
+	tintContainer.insertBefore(newCard(curHexCode), tintContainer.children[2]);
+	*/
+	
+	//detailViewContainer.insertBefore(tintContainer, backButton);
+	
+	
+	mainContainer.removeChild(listViewContainer);
+	mainContainer.insertBefore(detailViewContainer, nav);
+	
+}
+
+function getCardListPosition(card) {
+	for (let i = 0; i < 3; i++) {
+		for (let j = 0; j < 4; j++) {
+			const index = (i*4) + j;
+			const indexedCard = listViewContainer.children[index];
+			if (card.id === indexedCard.id) {
+				return index;
+			}
+		}
+	}
+	return -1;
+}
+
+
+
+
+
+
+
+
 
 function getItemCount() {
 	 return cardList.length;
@@ -68,7 +245,7 @@ function loadPage(pageNumber) {
                    if(index >= cardList.length) {
                         return;
                    }
-                   innerGridContainer.appendChild(cardList[index]);
+                   listViewContainer.appendChild(cardList[index]);
                    index++;
               }
       	}
@@ -77,65 +254,13 @@ function loadPage(pageNumber) {
 }
 
 function clearPage() {
-	 while(innerGridContainer.childElementCount > 0) {
-		  const node = innerGridContainer.firstElementChild;
-		  innerGridContainer.removeChild(node);
+	 while(listViewContainer.childElementCount > 0) {
+		  const node = listViewContainer.firstElementChild;
+		  listViewContainer.removeChild(node);
 	 }
 }
 
-/* Swatch view change */
-innerGridContainer.addEventListener('click', (e) => {
-	if(e.target.className === 'card-swatch') {
-		const swatch = e.target;
-		switchViews(swatch.parentElement);
-	}
-});
 
-
-function switchViews(card) {
-	if (overallView === "list") {
-		overallView = "detail";
-		curCard = card;
-		switchViewClass(curCard);
-		loadDetailView();
-	} else {
-		if(card.id === curCard.id) {
-			overallView = "list";
-			switchViewClass(curCard);
-			//curCard = null; //TODO: double check this is correct.
-			loadListView();
-		} else {
-			switchViewClass(curCard);
-			curCard = card;
-			switchViewClass(curCard);
-			loadDetailView();
-		}
-	}
-	console.log('swapped to ' + overallView + ' view');
-	console.log('current card: ' + curCard.id);
-}
-
-function switchViewClass(card) {
-	if (curCard.classList.contains("list")) {
-		curCard.classList.remove("list");
-		curCard.classList.add("detail");
-	} else {
-		curCard.classList.remove("detail");
-		curCard.classList.add("list");
-	}
-}
-
-function loadListView() {
-	//todo: load list view to specific page of color from detail view
-	
-	
-	
-}
-
-function loadDetailView() {
-	
-	//
-}
 
 function initNavigation() {
 	 console.log("initializing navigation links");
@@ -176,8 +301,8 @@ function newCard(hexCode) {
 	
 	// Create the card's visible swatch
 	const cardSwatch = document.createElement("div");
-	cardSwatch.className = "card-swatch";
-	cardSwatch.style.backgroundColor = hexCode;	
+	cardSwatch.className = "card-swatch-list";
+	cardSwatch.style.backgroundColor = hexCode;
 	
 	// Create the chip's hexadecimal text
 	const cardText = document.createElement("span");
@@ -207,7 +332,7 @@ function newCard(hexCode) {
 
 /*
 // Color Card Buttons
-innerGridContainer.addEventListener('click', (e) => {
+listViewContainer.addEventListener('click', (e) => {
 	if(e.target.tagName === 'BUTTON') {
 		const button = e.target;  
 	  	const textElement = button.parentNode;
