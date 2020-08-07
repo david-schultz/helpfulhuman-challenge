@@ -145,12 +145,12 @@ body {
 
 .card-swatch-list {
     height:100px;
-	width:inherit;
+	width: 100%;
 }
 
 .card-swatch-detail {
-	height: 200px;
-	width: inherit; /* should be full width*/
+	height: 250px;
+	width: 100%;
 }
 
 .card-hex-code{
@@ -171,7 +171,12 @@ body {
 }
 
 .detail-card {
-	grid-area: "detail-card";
+	display:flex;
+    flex-direction: column;
+    width: 80%;
+    margin:40px;
+    align-content: center;
+    overflow:auto; 
 }
 
 /*TODO*/
