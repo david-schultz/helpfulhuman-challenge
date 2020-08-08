@@ -49,7 +49,7 @@ body {
 	height:inherit;
 }
 
-#newColorButton {
+#loadButton {
 	display: block;
 	margin-top: 40px;
 	margin-left: auto;
@@ -170,6 +170,17 @@ body {
     border-radius:10px;
 }
 
+
+
+/* DETAIL VIEW */
+.detail-view-container {
+    display: grid;
+    grid-template-areas:
+        "detailCard"
+        "tintSection"
+        "backButton";
+}
+
 .detail-card {
 	display:flex;
     flex-direction: column;
@@ -177,20 +188,44 @@ body {
     margin:40px;
     align-content: center;
     overflow:auto; 
+    grid-area: "detailCard";
+}
+
+.tint-section {
+    display: grid;
+    grid-area: "tintSection";
+}
+
+.card-swatch-tint {
+    height: 50px;
+    width: 100%;
+}
+
+#backButton {
+    grid-area: "backButton";
+    
 }
 
 /*TODO*/
-.edit-button {
-	
+.grid-container {
+    
 }
 
-.save-button {
-	
+.grid-nav {
+    
 }
 
+.detail-container {
+    
+}
 
+.tint-container {
+    
+}
 
-
+.back-button {
+    
+}
 
 
 
