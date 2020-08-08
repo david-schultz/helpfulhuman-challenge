@@ -184,16 +184,10 @@ body {
 .detail-card {
 	display:flex;
     flex-direction: column;
-    width: 80%;
     margin:40px;
     align-content: center;
     overflow:auto; 
     grid-area: "detailCard";
-}
-
-.tint-section {
-    display: grid;
-    grid-area: "tintSection";
 }
 
 .card-swatch-tint {
@@ -201,10 +195,6 @@ body {
     width: 100%;
 }
 
-#backButton {
-    grid-area: "backButton";
-    
-}
 
 /*TODO*/
 .grid-container {
@@ -224,19 +214,51 @@ body {
 }
 
 .detail-container {
-    display: grid;
-    grid-template-areas:
-        "detailCard"
-        "tintSection"
-        "backButton";
+     width: 100%;
+    height: auto;
+}
+
+.card-swatch-detail {
+    height: 250px;
+    width: 100%;
 }
 
 .tint-container {
+    display: grid;
+    height: auto;
     
+    grid-gap: 1rem;
+    margin: 40px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-area: "tintSection";
+}
+
+.tint-card {
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    overflow:auto; 
+    grid-area: "detailCard";
 }
 
 .back-button {
-    
+    display: block;
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	padding: 10px;
+	
+	/* border */
+	border:1px #ccc solid;
+	box-shadow:1px 1px 2px #e6e6e6;
+	border-radius: 7px;
+	
+	/* font */
+	font-family: inherit;
+	font-weight: 600;
+	font-size: 16px;
+    grid-area: "backButton";
 }
 
 
