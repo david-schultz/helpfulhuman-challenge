@@ -4,10 +4,10 @@
  */
     const sideBar = document.querySelector("sidebar-cell");
     const mainContainer = document.querySelector("#mainContainer");
-    const gridContainer = new GridContainer();
-    const detailContainer = new DetailContainer();
-    const colorList = new Array();
-    const cardList = new Array();
+    const colorList = new Array(); //hashmap?
+    const cardList = new Array(); //hashmap?
+    //const gridContainer = -1;
+    //const detailContainer = -1;
 
 /*
  * Basic States
@@ -17,8 +17,26 @@
     const itemsPerPage = 12;
     let curPage = -1;
 
+
+    initialized = true;
+    //function initialize() {
+        let elementCount = 50;
+        populateColorList("random", elementCount);
+        populateCardList(colorList);
+        const gridContainer = new GridContainer();
+        const detailContainer = new DetailContainer();
+        
+        mainContainer.appendChild(gridContainer.container);
+        mainContainer.appendChild(detailContainer.container);
+        
+        // load page
+        gridContainer.load(1);
+
     function getItemCount() { return colorList.length; }
-    function getPageCount() { return Math.ceil(getItemCount() / itemsPerPage); }
+    function getPageCount() { 
+        console.log('itemCount: ' + getItemCount());
+        return Math.ceil(getItemCount() / itemsPerPage);
+    }
 
 /*
  * Data Population
@@ -30,12 +48,9 @@
     //      - source = "random" fills w/ random hexcodes
     //  - size determines the length of the list
     function populateColorList(source, size) {
-        if(initialized) {
-            return;
-        }
         if(source.toLowerCase() === "random") {
             for(let i = 0; i < size; i++) {
-                colorList[i] = new Color(randomHexCode());
+                colorList[i] = new Color(getRandomHex());
             }
         } else if (source.toLowerCase() === "database") {
             
@@ -50,35 +65,15 @@
         }
     }
     
-    function newCard(color) {
-        // Create color card framework
-        const card = document.createElement("div");
-        card.id = color.hexcode;
-        card.className = "grid-cell border border-round list";
-        card.classList.add(getColorCategory(color.hsl));
-        
-        // Create the card's visible swatch
-        const cardSwatch = document.createElement("div");
-        cardSwatch.className = "card-swatch-list";
-        cardSwatch.style.backgroundColor = color.hexcode;
-        
-        // Create the chip's hexadecimal text
-        const cardText = document.createElement("span");
-        cardText.textContent = color.hexcode;
-        cardText.className = "card-hex-code";
-        
-        // Append swatch + text to chip
-        card.appendChild(cardSwatch);
-        card.appendChild(cardText);
-        
-        return card;
-    }
 
 
+/*
     const loadButton = document.querySelector("#loadButton");
     loadButton.addEventListener("click", () => {
        initialize(); 
     });
+
+/*
 
     function initialize() {
         if(initialized) {
@@ -89,8 +84,8 @@
         const elementCount = 50;
         populateColorList(elementCount);
         populateCardList(colorList);
-        gridContainer = GridContainer();
-        detailContainer = DetailContainer();
+        gridContainer = new GridContainer();
+        detailContainer = new DetailContainer();
         
         mainContainer.appendChild(gridContainer);
         mainContainer.appendChild(detailContainer);
@@ -98,7 +93,7 @@
         // load page
         gridContainer.load(1);
     }
-
+*/
 
 
 
@@ -131,6 +126,8 @@
         //nav setup
         nav.className = "grid-nav";
         nav.id = "gridNav";
+        console.log('creating grid nav');
+        console.log(getPageCount());
         for (let i = 0; i < getPageCount(); i++) {
           const navLink = document.createElement("a");
           const pageNo = i + 1;
@@ -138,6 +135,7 @@
           navLink.href = "#page" + pageNo + "/";
           navLink.textContent = pageNo;
           navLink.id = navLink.href;
+            console.log(navLink.textContent);
           nav.appendChild(navLink);
         }
         
@@ -148,22 +146,25 @@
         this.grid = grid;
         this.nav = nav;
         this.isLoaded = false;
-        this.curPage = -1;
+        this.curPage = 1;
        
         this.load = function(pageNumber) {
+            this.unload(this.curPage);
             this.isLoaded = true;
             this.container.style.display = "block";
-            nav.children[curPage].style.textDecoration = "none";
-            nav.children[pageNumber].style.textDecoration = "underline";
-            detailContainer.unload();
-            unload(this.curPage);
+            nav.children[this.curPage-1].style.textDecoration = "underline";
+            nav.children[this.curPage-1].style.textDecoration = "none";
+            nav.children[pageNumber-1].style.textDecoration = "underline";
             
+            detailContainer.unload();
+            
+            this.curPage = pageNumber;
             fillPage(pageNumber);
             
-        }
+        };
         
         function fillPage(pageNumber) {
-            this.curPage = pageNumber;
+            console.log('fillingPage');
             let index = (pageNumber - 1) * itemsPerPage;
             for(let i = 0; i < 3; i++) {
                   for(let j = 0; j < 4; j++) {
@@ -184,7 +185,7 @@
             this.isLoaded = false;
             this.container.style.display = "none";
             this.grid.innerHTML = '';
-        }
+        };
     }
 
     function DetailContainer() {
@@ -197,7 +198,7 @@
         detail.className = "detail-container";
         detail.id = "detailContainer";
         tintContainer.className = "tint-container";
-        backButtonutton.className = "back-button";
+        backButton.className = "back-button";
         backButton.textContent = "Back";
         container.appendChild(detail);
         container.appendChild(tintContainer);
@@ -210,18 +211,20 @@
         this.isLoaded = false;
         
         this.load = function(color) {
+            this.unload();
             this.isLoaded = true;
             this.container.style.display = "block";
             gridContainer.unload();
-            unload();
             
             const card = newDetailCard(color);
+            this.detail.appendChild(card);
             container.append(card);
             const tintCards = getTintCards(color.tints);
             for(let i = 0; i < 5; i++) {
-                tintContainer.appendChild(tintCards[i]);
+                this.tintContainer.appendChild(tintCards[i]);
             }
-        }
+            
+        };
         this.unload = function() {
             if(!this.isLoaded) {
                 console.log('detail already unloaded');
@@ -231,8 +234,89 @@
             this.container.style.display = "none";
             this.container.innerHTML = '';
             this.tintContainer.innerHTML = '';
-        }
+        };
    }
+
+/*
+ * Card Creation
+ *
+ */
+
+    function newCard(color) {
+        // Create color card framework
+        const card = document.createElement("div");
+        card.id = color.hexcode;
+        card.className = "grid-cell border border-round";
+        card.classList.add(getColorCategory(color.hsl));
+        
+        // Create the card's visible swatch
+        const cardSwatch = document.createElement("div");
+        cardSwatch.className = "card-swatch-list swatch-box";
+        cardSwatch.style.backgroundColor = color.hexcode;
+        
+        // Create the chip's hexadecimal text
+        const cardText = document.createElement("span");
+        cardText.textContent = color.hexcode;
+        cardText.className = "card-hex-code";
+        
+        // Append swatch + text to chip
+        card.appendChild(cardSwatch);
+        card.appendChild(cardText);
+        
+        return card;
+    }
+
+    function newDetailCard(color) {
+        // Create color card framework
+        const card = document.createElement("div");
+        card.id = color.hexcode;
+        card.className = "detail-card border border-round";
+        //card.classList.add(getColorCategory(color.hsl));
+        
+        // Create the card's visible swatch
+        const cardSwatch = document.createElement("div");
+        cardSwatch.className = "card-swatch-detail swatch-box";
+        cardSwatch.style.backgroundColor = color.hexcode;
+        
+        // Create the chip's hexadecimal text
+        const cardText = document.createElement("span");
+        cardText.textContent = color.hexcode;
+        cardText.className = "card-hex-code";
+        
+        // Append swatch + text to chip
+        card.appendChild(cardSwatch);
+        card.appendChild(cardText);
+        
+        return card;
+    }
+
+    function getTintCards(tints) {
+        const tintCards = new Array();
+        for (let i = 0; i < tints.length; i++) {
+            const color = tints[i];
+            const card = document.createElement("div");
+            card.id = color.hexcode;
+            card.className = "tint-card border border-round";
+            //card.classList.add(getColorCategory(color.hsl));
+
+            // Create the card's visible swatch
+            const cardSwatch = document.createElement("div");
+            cardSwatch.className = "card-swatch-tint swatch-box";
+            cardSwatch.style.backgroundColor = color.hexcode;
+
+            // Create the chip's hexadecimal text
+            const cardText = document.createElement("span");
+            cardText.textContent = color.hexcode;
+            cardText.className = "card-hex-code";
+
+            // Append swatch + text to chip
+            card.appendChild(cardSwatch);
+            card.appendChild(cardText);
+
+            tintCards[i] = card;
+        }
+        return tintCards;
+    }
 
 /*
  * Grid Event Handling
@@ -241,34 +325,43 @@
 
 
 
-gridContainer.addEventListener("click", (e) => {
+gridContainer.container.addEventListener("click", (e) => {
     // Swatch Click
         // Pagination Click
+    console.log("i detect a CLICC");
+    if(e.target.classList.contains("swatch-box")) {
+        console.log('you clicked a swatch!');
+        const color = getColorFromHex(e.target.parentNode.id);
+        detailContainer.load(color);
+    } else if (e.target.className === "page-link") {
+        const pageNumber = parseInt(e.target.textContent);
+        gridContainer.load(pageNumber);
+    }
 });
 
-/* todo */
-nav.addEventListener("click", (e) => {
-   if(e.target.className === "page-link") {
-       const pageNumber = parseInt(e.target.textContent);
-       removeNavDecoration();
-       e.target.style.textDecoration = "underline";
-       clearPage();
-       loadPage(pageNumber);
-       console.log(curPage);
-   } 
+detailContainer.container.addEventListener("click", (e) => {
+    if(e.target.classList.contains("swatch-box")) {
+        const card = e.target.parentNode;
+        if(card.classList.contains("detail-card")) {
+            gridContainer.load(gridContainer.curPage);
+        } else if(card.classList.contains("tint-card")) {
+            const tintColor = getColorFromHex(card.id);
+            detailContainer.load(tintColor);
+        }
+    } else if (e.target.className === "back-button") {
+        gridContainer.load(gridContainer.curPage);
+    }
 });
-        
 
-/*
- * Detail Event Handling
- *
- */
-detailContainer.addEventListener("click", (e) => {
-    
-})
-        // Swatch Click
-        // Tint Click
-        // Button Click
+function getColorFromHex(hexcode) {
+    for(let i = 0; i < colorList.length; i++) {
+        const color = colorList[i];
+        if (color.hexcode = hexcode) {
+            return color;
+        }
+    }
+    return -1;
+}
 
 /*
  * Color Handling
@@ -284,7 +377,7 @@ detailContainer.addEventListener("click", (e) => {
         }
         
         // * Returns a random hexcode as a string
-        function getRandomColor() {
+        function getRandomHex() {
              // eg: #ffffff or #000000
              let code = "#";
              for (let x = 0; x < 6; x++) {
@@ -525,224 +618,10 @@ detailContainer.addEventListener("click", (e) => {
 
 
 
-const outerContainer = document.getElementById('outerContainer');
-const mainContainer = document.getElementById('mainContainer');
-const nav = document.querySelector("#cardNav");
-const newColorButton = document.getElementById("newColorButton");
-const clearGridButton = document.getElementById("clearGridButton");
-const randPageButton = document.getElementById("randPageButton");
-
-const cardList = new Array();
-const itemsPerPage = 12;
-let curPage = 1;
-let isLoaded = false;
-
-// View Switching
-let overallView = "list";
-let curCard = null;
-const listViewContainer = createListViewContainer();		// change name to listViewContainer
-const detailViewContainer = createDetailViewContainer();
-mainContainer.insertBefore(listViewContainer, nav);
-
-let cardListPosition = -1;
-
-function createListViewContainer() {
-	const container = document.createElement("div");
-	container.className = "list-view-container"; 	// "list-view-container"
-	container.id = "listContainer";	
-	return container;
-}
-
-function createDetailViewContainer() {
-	const container = document.createElement("div");
-	container.className = "detail-view-container";
-	container.id = "detailContainer";
-	//append back button
-	const backButton = document.createElement('button');
-	backButton.id = "backButton";
-    backButton.textContent = "Back";
-	container.appendChild(backButton);
-	return container;
-}
 
 
 
 
-
-/* Swatch view change */
-listViewContainer.addEventListener('click', (e) => {
-    const swatch = e.target;
-	if(swatch.className === 'card-swatch-detail') {
-		console.log("Fatal error! Detail class within list view.");
-	}
-	if(swatch.className === 'card-swatch-list') {
-		switchViews(swatch.parentElement);
-	}
-});
-
-detailViewContainer.addEventListener("click", (e) => {
-	const targetName = e.target.className;
-	if(e.target.id === "backButton") {
-		switchViews(e.target.parentElement.children[0]);
-	} else if (targetName === "card-swatch-detail") {
-		switchViews(e.target.parentElement);
-	} else if  (targetName === "card-swatch-tint") {
-		switchViews(e.target.parentElement);
-	}
-});
-
-
-function switchViews(card) {
-	if (overallView === "list") {
-		overallView = "detail";
-		curCard = card;
-		cardListPosition = getCardListPosition(card);
-		switchViewClass(curCard);
-		loadDetailView(curCard);
-        
-        nav.style.display = "none";
-	} else {
-		// need to replace the previous card in list view
-        
-
-		if(card.id === curCard.id) {
-			overallView = "list";
-			switchViewClass(curCard);
-			//curCard = null; //TODO: double check this is correct.
-			loadListView(curCard);
-            
-            nav.style.display = "block";
-		} else {
-			switchViewClass(curCard);
-            replaceListCard();
-			//curCard = card;
-			//switchViewClass(curCard);
-			//loadDetailView(curCard);
-            switchViewClass(card);
-            loadDetailView(card);
-		}
-	}
-	//console.log('swapped to ' + overallView + ' view');
-	//console.log('current card: ' + curCard.id);
-}
-
-function replaceListCard() {
-    const children = listViewContainer.children;
-    if (!listViewContainer.contains(curCard)) {
-        if(cardListPosition === children.length) {
-            listViewContainer.appendChild(curCard);
-        } else {
-            const refNode = children[cardListPosition];
-            listViewContainer.insertBefore(curCard, refNode);    
-        }
-    }
-}
-
-function switchViewClass(card) {
-	if (curCard.classList.contains("list")) {
-		curCard.classList.remove("list");
-		curCard.classList.add("detail");
-        
-        curCard.classList.remove("grid-cell");
-        curCard.classList.add("detail-card");
-		//console.log("replaced w/ detail");
-	} else if (curCard.classList.contains("detail")) {
-		curCard.classList.remove("detail");
-		curCard.classList.add("list");
-        
-        curCard.classList.add("grid-cell");
-        curCard.classList.remove("detail-card");
-		//console.log("replaced w/ list");
-	} else if (curCard.classList.contains("tint")) {
-		curCard.classList.remove("tint");
-		curCard.classList.add("detail");
-	}
-}
-
-function loadListView(card) {
-	//todo: load list view to specific page of color from detail view
-	//remove cards from detailViewContainer
-    
-	card.children[0].className = "card-swatch-list";
-    replaceListCard();
-	
-	
-	
-	mainContainer.removeChild(detailViewContainer);
-	mainContainer.insertBefore(listViewContainer, nav);
-	
-	
-}
-
-function loadDetailView(card) {
-	const backButton = detailViewContainer.children[0];
-	
-	card.children[0].className = "card-swatch-detail";
-	detailViewContainer.insertBefore(card, backButton);
-	
-	
-	const tintContainer = document.createElement("div");
-	tintContainer.className = "tint-container";
-	//define hexCode in relation to curCard.id
-	const curHexCode = card.id;
-    const tints = getTints(curHexCode);
-	//configure tint cards
-	for(let i = 0; i < 4; i++) {
-		const tintCard = newCard(tints[i]);
-		tintCard.children[0].className = "card-swatch-tint";
-		tintContainer.appendChild(tintCard);
-	}
-	//if there is room
-	// creates a new card (of main card), and adds to middle
-	tintContainer.insertBefore(newCard(curHexCode), tintContainer.children[2]);
-	
-	
-	detailViewContainer.insertBefore(tintContainer, backButton);
-	
-	
-	mainContainer.removeChild(listViewContainer);
-	mainContainer.insertBefore(detailViewContainer, nav);
-	
-}
-
-function getCardListPosition(card) {
-	for (let i = 0; i < 3; i++) {
-		for (let j = 0; j < 4; j++) {
-			const index = (i*4) + j;
-			const indexedCard = listViewContainer.children[index];
-			if (card.id === indexedCard.id) {
-				return index;
-			}
-		}
-	}
-	return -1;
-}
-
-
-
-
-
-
-
-
-
-
-
-newColorButton.addEventListener("click", () => {
-	 console.log('loading...');
-     load();
-});
-
-randPageButton.addEventListener("click", () => {
-	 console.log('generating random page...');
-	 loadPage(1);
-});
-
-clearGridButton.addEventListener("click", () => {
-	 console.log('clearing grid...');
-	 clearPage();
-	 curPage = 1;
-});
 
 
 
@@ -803,25 +682,6 @@ listViewContainer.addEventListener('click', (e) => {
 
 
 
-function randomHexCode() {
-     // eg: #ffffff or #000000
-     let code = "#";
-     for (let x = 0; x < 6; x++) {
-          let rand = Math.floor(Math.random()*16);
-          code = code + convertDigitToHex(rand);
-     }
-     return code;
-}
-
-function convertDigitToHex(digit) {
-     if (digit < 10) {
-          return String(digit);
-     }
-     let unicodeDigit = 87 + digit;
-     return String.fromCharCode(unicodeDigit);
-}
-
-
 /* Given a hex code, checks whether the hexcode already exists in the data set.
 - Returns true if hex is already in set.
 - Returns false if hex is not in set.*/
@@ -846,55 +706,6 @@ function isHexValid(hexCode) {
 	}
 	return true;
 }
-
-
-
-
-
-
-
-
-
-function colorClassification(hexCode) {
-    const hsl = hexToHSL(hexCode);
-    const hue = hsl[0];
-    const sat = hsl[1];
-    const lit = hsl[2];
-    
-    if(sat < 15) {
-        return 'grey';
-    }
-    
-    if(hue > 15 && hue <= 50) {
-        if(lit < 25) {
-            return 'brown';
-        }
-        return 'orange';
-    } else if (hue > 50 && hue <= 65) {
-        return 'yellow';
-    } else if (hue > 65 && hue <= 150) {
-        return 'green';
-    } else if (hue > 150 && hue <= 250) {
-        return 'blue';
-    } else if (hue > 250 && hue <= 315) {
-        return 'purple';
-    } else {
-        return 'red';
-    }
-    
-}
-        
-
-
-
-
-
-
-
-
-
-
-
 
 
 

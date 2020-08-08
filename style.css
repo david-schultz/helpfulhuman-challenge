@@ -208,15 +208,27 @@ body {
 
 /*TODO*/
 .grid-container {
-    
+	display: grid;
+	justify-content: space-between;
+	justify-items: center;
+	align-items: center;
+	grid-gap: 1rem;
+	
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(3, 1fr);
 }
 
 .grid-nav {
-    
+    display:block;
+    justify-content: center;
 }
 
 .detail-container {
-    
+    display: grid;
+    grid-template-areas:
+        "detailCard"
+        "tintSection"
+        "backButton";
 }
 
 .tint-container {
