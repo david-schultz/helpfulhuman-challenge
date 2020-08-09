@@ -24,9 +24,11 @@
     populateCardList(colorList);
     const gridContainer = new GridContainer();
     const detailContainer = new DetailContainer();
+    const categoryContainer = new CategoryContainer();
 
     mainContainer.appendChild(gridContainer.container);
     mainContainer.appendChild(detailContainer.container);
+    mainContainer.appendChild(categoryContainer.container);
 
     // load page
     gridContainer.load(1);
@@ -97,12 +99,11 @@
         this.nav = nav;
         this.isLoaded = false;
         this.curPage = 1;
-       
+        
         this.load = function(pageNumber) {
             this.unload(this.curPage);
             this.isLoaded = true;
             this.container.style.display = "block";
-            nav.children[this.curPage-1].style.textDecoration = "underline";
             nav.children[this.curPage-1].style.textDecoration = "none";
             nav.children[pageNumber-1].style.textDecoration = "underline";
             
@@ -158,6 +159,7 @@
         this.tintContainer = tintContainer;
         this.backButton = backButton;
         this.isLoaded = false;
+        this.prevView = "grid";
         
         this.load = function(color) {
             this.unload();
@@ -184,6 +186,128 @@
         };
    }
 
+    function CategoryContainer() {
+        const container = document.createElement("div");
+        const grid = document.createElement("div");
+        const nav = document.createElement("div");
+            nav.className = "page-nav";
+            nav.id = "categoryNav";
+       
+        container.style.display = "none";
+	    grid.className = "grid-container";
+  	    grid.id = "gridContainer";
+        
+        container.appendChild(grid);
+        container.appendChild(nav);
+      
+	    this.container = container;
+        this.grid = grid;
+        this.nav = nav;
+        this.isLoaded = false;
+        this.curCategory = 'red';
+        this.curArray = getCategoryCards('red');
+        this.curPage = 1;
+        
+        this.loadCategory = function(category) {
+            this.unloadPage();
+            this.curCategory = category;
+            if(category === "All Colors") {
+                this.unload();
+                gridContainer.load(1);
+                detailContainer.prevView = "grid";
+                return;
+            }
+            const array = getCategoryCards(category);
+            this.curArray = array;
+            this.isLoaded = true;
+            this.container.style.display = "block";
+            
+            if(this.curArray.length == 0) {
+                const span = document.createElement("span");
+                span.textContent = "Sorry, there is no " + category + " in this color base.";
+                span.className = "empty-category-span";
+                grid.appendChild(span);
+                return;
+            }
+            
+            const pageCount = Math.ceil(this.curArray.length / itemsPerPage);
+            navSetup(pageCount);
+            
+            this.loadPage(1);
+            
+        };
+        
+        this.reload = function() {
+            this.isLoaded = true;
+            this.container.style.display = "block";
+        };
+        
+        this.unload = function() {
+            this.isLoaded = false;
+            this.container.style.display = "none";
+        };
+        
+        this.loadPage = function(pageNumber) {
+            this.unloadPage();
+            this.isLoaded = true;
+            this.container.style.display = "block";
+            nav.children[this.curPage-1].style.textDecoration = "none";
+            nav.children[pageNumber-1].style.textDecoration = "underline";
+            
+            this.curPage = pageNumber;
+            fillPage(pageNumber, this.curArray);
+        };
+        
+        function fillPage(pageNumber, cards) {
+            let index = (pageNumber - 1) * itemsPerPage;
+            for(let i = 0; i < 3; i++) {
+                  for(let j = 0; j < 4; j++) {
+                      console.log('test');
+                       if(index >= cards.length) {
+                            return;
+                       }
+                       grid.appendChild(cards[index]);
+                       index++;
+                  }
+            }
+        }
+        
+        this.unloadPage = function() {
+            if(!this.isLoaded) {
+                return;
+            }
+            this.isLoaded = false;
+            this.container.style.display = "none";
+            this.grid.innerHTML = '';
+        };
+        
+        function navSetup(pageCount) {
+            nav.innerHTML = '';
+            for (let i = 0; i < pageCount; i++) {
+              const navLink = document.createElement("a");
+              const pageNo = i + 1;
+              navLink.className = "page-link";
+              navLink.href = "#page" + pageNo + "/";
+              navLink.textContent = pageNo;
+              navLink.id = navLink.href;
+              nav.appendChild(navLink);
+            }
+        }
+    
+        function getCategoryCards(category) {
+            const cardArray = new Array();
+            let index = 0;
+            
+            for(let i = 0; i < colorList.length; i++) {
+                const color = colorList[i];
+                if(color.category.toLowerCase() === category.toLowerCase()) {
+                    cardArray[index] = newCard(color);
+                    index++;
+                }
+            }
+            return cardArray;
+        }
+    }
 /*
  * Card Creation
  *
@@ -283,7 +407,16 @@ gridContainer.container.addEventListener("click", (e) => {
 });
 
 detailContainer.container.addEventListener("click", (e) => {
-    if(e.target.classList.contains("swatch-box")) {
+    if(detailContainer.prevView === "category") {
+        const card = e.target.parentNode;
+        if(card.classList.contains("tint-card")) {
+            const tintColor = createColor(card.id);
+            detailContainer.load(tintColor);
+        } else if (card.classList.contains("detail-card") || e.target.className === "back-button") {
+            categoryContainer.reload();
+            detailContainer.unload();
+        }
+    } else if(e.target.classList.contains("swatch-box")) {
         const card = e.target.parentNode;
         if(card.classList.contains("detail-card")) {
             gridContainer.load(gridContainer.curPage);
@@ -296,6 +429,20 @@ detailContainer.container.addEventListener("click", (e) => {
     }
 });
 
+categoryContainer.container.addEventListener("click", (e) => {
+    if(e.target.classList.contains("swatch-box")) {
+        console.log('you clicked a swatch!');
+        console.log('swatch id: ' + e.target.parentNode.id);
+        const color = getColorFromHex(e.target.parentNode.id);
+        categoryContainer.unload();
+        detailContainer.prevView = "category";
+        detailContainer.load(color);
+    } else if (e.target.className === "page-link") {
+        const pageNumber = parseInt(e.target.textContent);
+        categoryContainer.loadPage(pageNumber);
+    }
+});
+
 function getColorFromHex(hexcode) {
     for(let i = 0; i < colorList.length; i++) {
         const color = colorList[i];
@@ -305,6 +452,26 @@ function getColorFromHex(hexcode) {
     }
     return -1;
 }
+
+/*
+ * Sidebar Handling
+ *
+ */
+        // Load data button
+        // Random color button
+        // Category Navigation
+
+
+//nav setup
+const sideNav = document.querySelector("#sidebarNav");
+console.log(sideNav);
+sideNav.addEventListener("click", (e) => {
+    const category = e.target.textContent;
+    console.log("category: " + category);
+    gridContainer.unload();
+    detailContainer.unload();
+    categoryContainer.loadCategory(category);
+});
 
 /*
  * Color Handling
@@ -527,13 +694,4 @@ function getColorFromHex(hexcode) {
             return deviation;
           }
         }
-
-/*
- * Sidebar Handling
- *
- */
-        // Load data button
-        // Random color button
-        // Category Navigation
-
 
