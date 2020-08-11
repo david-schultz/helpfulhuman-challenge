@@ -2,7 +2,7 @@
  * Document Variables
  *
  */
-    const sideBar = document.querySelector("sidebar-cell");
+    const sideBar = document.querySelector("#sidebarCell");
     const mainContainer = document.querySelector("#mainContainer");
     const colorList = new Array(); //hashmap?
     const cardList = new Array(); //hashmap?
@@ -19,7 +19,7 @@
 
     initialized = true;
     //function initialize() {
-    let elementCount = 50;
+    let elementCount = 100;
     populateColorList("random", elementCount);
     populateCardList(colorList);
     const gridContainer = new GridContainer();
@@ -75,6 +75,7 @@
         const nav = document.createElement("div");
        
         container.style.display = "none";
+        container.className = "inner-container";
 	    grid.className = "grid-container";
   	    grid.id = "gridContainer";
         
@@ -104,8 +105,11 @@
             this.unload(this.curPage);
             this.isLoaded = true;
             this.container.style.display = "block";
+            
             nav.children[this.curPage-1].style.textDecoration = "none";
+            nav.children[this.curPage-1].style.fontWeight = "100px";
             nav.children[pageNumber-1].style.textDecoration = "underline";
+            nav.children[pageNumber-1].style.fontWeight = "600px";
             
             detailContainer.unload();
             
@@ -148,8 +152,8 @@
         detail.className = "detail-container";
         detail.id = "detailContainer";
         tintContainer.className = "tint-container";
-        backButton.className = "back-button";
-        backButton.textContent = "Back";
+        backButton.className = "button back-button";
+        backButton.textContent = "Clear";
         container.appendChild(detail);
         container.appendChild(tintContainer);
         container.appendChild(backButton);
@@ -202,7 +206,7 @@
       
 	    this.container = container;
         this.grid = grid;
-        this.nav = nav;
+            this.nav = nav;
         this.isLoaded = false;
         this.curCategory = 'red';
         this.curArray = getCategoryCards('red');
@@ -221,18 +225,22 @@
             this.curArray = array;
             this.isLoaded = true;
             this.container.style.display = "block";
+            nav.style.display = "flex";
+            
             
             if(this.curArray.length == 0) {
                 const span = document.createElement("span");
                 span.textContent = "Sorry, there is no " + category + " in this color base.";
                 span.className = "empty-category-span";
-                grid.appendChild(span);
+                container.insertBefore(span, nav);
+                nav.style.display = "none";
                 return;
             }
             
             const pageCount = Math.ceil(this.curArray.length / itemsPerPage);
             navSetup(pageCount);
             
+            this.curPage = 1;
             this.loadPage(1);
             
         };
@@ -251,8 +259,12 @@
             this.unloadPage();
             this.isLoaded = true;
             this.container.style.display = "block";
+            
+            console.log('curPage' + curPage);
             nav.children[this.curPage-1].style.textDecoration = "none";
+            nav.children[this.curPage-1].style.fontWeight = "100px";
             nav.children[pageNumber-1].style.textDecoration = "underline";
+            nav.children[pageNumber-1].style.fontWeight = "600px";
             
             this.curPage = pageNumber;
             fillPage(pageNumber, this.curArray);
@@ -262,7 +274,6 @@
             let index = (pageNumber - 1) * itemsPerPage;
             for(let i = 0; i < 3; i++) {
                   for(let j = 0; j < 4; j++) {
-                      console.log('test');
                        if(index >= cards.length) {
                             return;
                        }
@@ -278,6 +289,14 @@
             }
             this.isLoaded = false;
             this.container.style.display = "none";
+            
+            for (let i = 0; i < this.container.children.length; i++) {
+                const span = this.container.children[i];
+                if(span.className === "empty-category-span") {
+                    this.container.removeChild(span);
+                }
+            }
+            
             this.grid.innerHTML = '';
         };
         
@@ -291,6 +310,10 @@
               navLink.textContent = pageNo;
               navLink.id = navLink.href;
               nav.appendChild(navLink);
+            }
+            
+            if(pageCount === 1) {
+                nav.style.display = "none";
             }
         }
     
@@ -341,7 +364,7 @@
         // Create color card framework
         const card = document.createElement("div");
         card.id = color.hexcode;
-        card.className = "detail-card border border-round";
+        card.className = "detail-card detail-border border-round";
         //card.classList.add(getColorCategory(color.hsl));
         
         // Create the card's visible swatch
@@ -352,7 +375,7 @@
         // Create the chip's hexadecimal text
         const cardText = document.createElement("span");
         cardText.textContent = color.hexcode;
-        cardText.className = "card-hex-code";
+        cardText.className = "detail-hex-code";
         
         // Append swatch + text to chip
         card.appendChild(cardSwatch);
@@ -412,7 +435,7 @@ detailContainer.container.addEventListener("click", (e) => {
         if(card.classList.contains("tint-card")) {
             const tintColor = createColor(card.id);
             detailContainer.load(tintColor);
-        } else if (card.classList.contains("detail-card") || e.target.className === "back-button") {
+        } else if (card.classList.contains("detail-card") || e.target.classList.contains("back-button")) {
             categoryContainer.reload();
             detailContainer.unload();
         }
@@ -424,7 +447,7 @@ detailContainer.container.addEventListener("click", (e) => {
             const tintColor = createColor(card.id);
             detailContainer.load(tintColor);
         }
-    } else if (e.target.className === "back-button") {
+    } else if (e.target.classList.contains("back-button")) {
         gridContainer.load(gridContainer.curPage);
     }
 });
@@ -454,6 +477,33 @@ function getColorFromHex(hexcode) {
 }
 
 /*
+const searchInput = document.querySelector("#searchInput");
+searchInput.addEventListener("keyup", (e) => {
+    if (e.keyCode === 13) {
+        console.log('uh');
+        let val = searchInput.value;
+        if (val.charAt !== "#") {
+            val = "#" + val;
+        }
+        if(val.length === 7) {
+            for (let i = 0; i < colorList.length; i++) {
+                let color = colorList[i];
+                if(color.hexcode === val.toLowerCase()) {
+                    console.log("switching...");
+                    gridContainer.unload();
+                    detailContainer.unload();
+                    detailContainer.load(color);
+                    categoryContainer.unload();
+                }
+            }
+        }
+    }
+    
+        
+    
+});
+  */  
+/*
  * Sidebar Handling
  *
  */
@@ -464,13 +514,23 @@ function getColorFromHex(hexcode) {
 
 //nav setup
 const sideNav = document.querySelector("#sidebarNav");
-console.log(sideNav);
 sideNav.addEventListener("click", (e) => {
+    console.log("something is happening");
     const category = e.target.textContent;
-    console.log("category: " + category);
     gridContainer.unload();
     detailContainer.unload();
     categoryContainer.loadCategory(category);
+});
+
+sideBar.addEventListener("click", (e) => {
+   if(e.target.classList.contains("button")) {
+       const rand = Math.floor(Math.random()*colorList.length);
+        const color = colorList[rand];
+        gridContainer.unload();
+        detailContainer.unload();
+        detailContainer.load(color);
+       categoryContainer.unload();
+   } 
 });
 
 /*
@@ -517,7 +577,7 @@ sideNav.addEventListener("click", (e) => {
             const sat = hsl[1];
             const lit = hsl[2];
 
-            if(sat < 15) {
+            if(sat < 9) {
                 return 'grey';
             }
 
@@ -528,13 +588,16 @@ sideNav.addEventListener("click", (e) => {
                 return 'orange';
             } else if (hue > 50 && hue <= 65) {
                 return 'yellow';
-            } else if (hue > 65 && hue <= 150) {
+            } else if (hue > 65 && hue <= 169) {
                 return 'green';
-            } else if (hue > 150 && hue <= 250) {
+            } else if (hue > 170 && hue <= 250) {
                 return 'blue';
             } else if (hue > 250 && hue <= 315) {
                 return 'purple';
             } else {
+                if(lit < 15) {
+                    return 'brown';
+                }
                 return 'red';
             }
         }

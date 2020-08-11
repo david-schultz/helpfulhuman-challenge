@@ -11,16 +11,13 @@
 		<header class="header-cell header-container border">
 			<img src="logo-symbol.svg" alt="logo" class="logo header-left"/>
 			<form class="search-bar header-right">
-				<input type="text"/>
-				<button type="submit">Search</button>
+				<input type="text" placeholder="Search" id="searchInput"/>
 			</form>
 		</header>
 
 		<!-- sidebar -->
-		<div class="sidebar-cell border">
-			<button id="loadButton">load</button>
-            <button id="clearGridButton">Clear Grid</button>
-            <button id="randPageButton">Random Page</button>
+		<div class="sidebar-cell border" id="sidebarCell">
+			<button class="button" id="randomColorButton">Random Color</button>
 
 			<nav class="sidebar-nav" id="sidebarNav">
                 <a href="#all/">All Colors</a>
