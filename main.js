@@ -476,6 +476,7 @@ function getColorFromHex(hexcode) {
     return -1;
 }
 
+
 /*
 const searchInput = document.querySelector("#searchInput");
 searchInput.addEventListener("keyup", (e) => {
