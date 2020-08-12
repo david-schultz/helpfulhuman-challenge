@@ -1,12 +1,15 @@
-const http = require('http');
-const port = process.env.PORT || 3000
+// create an express app
+const express = require("express")
+const app = express()
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  res.end('<h1>Hello World</h1>');
-});
+// use the express-static middleware
+app.use(express.static("public"))
 
-server.listen(port,() => {
-  console.log(`Server running at port `+port);
-});
+// define the first route
+app.get("/", function (req, res) {
+  res.send("<h1>Hello World!</h1>")
+})
+
+// start the server listening for requests
+app.listen(process.env.PORT || 3000, 
+	() => console.log("Server is running..."));

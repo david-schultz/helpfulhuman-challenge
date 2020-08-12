@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/david-schultz/helpfulhuman-challenge#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "node": "^14.7.0"
   },
   "engines": {
     "node": "14.7.0"
-  }
+  },
+  "keywords": []
 }
