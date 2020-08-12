@@ -52,7 +52,7 @@ function populateColorList(source, size) {
     } else if (source.toLowerCase() === "database") {
 
         const fs = require('fs');
-        let rawdata = fs.readFileSync('./colordata.txt', (err, data) => {
+        let rawdata = fs.readFileSync('./app.json', (err, data) => {
             if (err) {
                 console.log(err);
             }
