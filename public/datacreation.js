@@ -75,13 +75,13 @@ function getColorCategory(hsl) {
     }
 
     if (hue > 15 && hue <= 50) {
-        if (lit < 25) {
+        if ((sat < 50 && lit < 50) || lit < 25) {
             return 'brown';
         }
         return 'orange';
     } else if (hue > 50 && hue <= 60) {
         return 'yellow';
-    } else if (hue > 60 && hue <= 169) {
+    } else if (hue > 60 && hue <= 170) {
         return 'green';
     } else if (hue > 170 && hue <= 250) {
         return 'blue';

@@ -59,7 +59,7 @@ function populateColorList(source, size) {
         });
         */
        let xmlhttp = new XMLHttpRequest();
-       let url = "https://api.jsonbin.io/b/5f337ca11823333f8f2227f8";
+       let url = "https://api.jsonbin.io/b/5f337ca11823333f8f2227f8/4";
        xmlhttp.onreadystatechange = function () {
            if(this.readyState == 4 && this.status == 200) {
                let parsedJSON = JSON.parse(this.responseText);
@@ -611,24 +611,23 @@ function getColorCategory(hsl) {
     }
 
     if (hue > 15 && hue <= 50) {
-        if (lit < 25) {
+        if ((sat < 50 && lit < 50) || lit < 25) {
             return 'brown';
         }
         return 'orange';
     } else if (hue > 50 && hue <= 60) {
         return 'yellow';
-    } else if (hue > 60 && hue <= 169) {
+    } else if (hue > 60 && hue <= 170) {
         return 'green';
     } else if (hue > 170 && hue <= 250) {
         return 'blue';
     } else if (hue > 250 && hue <= 315) {
         return 'purple';
-    } else {
-        if (lit < 15) {
-            return 'brown';
-        }
-        return 'red';
     }
+    if (lit < 15) {
+        return 'brown';
+    }
+    return 'red';
 }
 
 
