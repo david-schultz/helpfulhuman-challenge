@@ -63,6 +63,7 @@ function populateColorList(source, size) {
        xmlhttp.onreadystatechange = function () {
            if(this.readyState == 4 && this.status == 200) {
                colorList = JSON.parse(this.responseText);
+               console.log(this.responseText);
            }
        };
        xmlhttp.open("GET", url, true);
