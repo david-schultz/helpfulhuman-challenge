@@ -22,7 +22,7 @@ let curPage = -1;
 initialized = true;
 //function initialize() {
 let elementCount = 100;
-populateColorList("random", elementCount);
+populateColorList("database", elementCount);
 populateCardList(colorList);
 const gridContainer = new GridContainer();
 const detailContainer = new DetailContainer();
@@ -50,7 +50,7 @@ function populateColorList(source, size) {
             colorList[i] = createColor(getRandomHex());
         }
     } else if (source.toLowerCase() === "database") {
-
+        const fs = require('fs');
         let rawdata = fs.readFileSync('./app.json', (err, data) => {
             if (err) {
                 console.log(err);
