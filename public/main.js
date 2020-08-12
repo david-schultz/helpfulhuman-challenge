@@ -64,13 +64,14 @@ function populateColorList(source, size) {
            if(this.readyState == 4 && this.status == 200) {
                //colorList = JSON.parse(this.responseText);
                colorList = this.responseText;
-               console.log(this.responseText);
+               console.log(this.responseText[0]);
            }
        };
        xmlhttp.open("GET", url, false);
        xmlhttp.setRequestHeader("secret-key", "$2b$10$4Xk3G.7pdYGmKfnyzDEdeuDVMoO5B7jlPmH16vXCy8LR2PBxPkr9u");
        xmlhttp.send();
         //colorList = JSON.parse(data);
+        console.log(colorList);
         console.log(colorList[0]);
     }
 }
