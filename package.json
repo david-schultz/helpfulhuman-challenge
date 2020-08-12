@@ -19,7 +19,10 @@
   "homepage": "https://github.com/david-schultz/helpfulhuman-challenge#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "node": "^14.7.0"
+    "express-graphql": "^0.11.0",
+    "graphql": "^15.3.0",
+    "node": "^14.7.0",
+    "requirejs": "^2.3.6"
   },
   "engines": {
     "node": "14.7.0"
