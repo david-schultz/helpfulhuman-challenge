@@ -75,7 +75,7 @@ function getColorCategory(hsl) {
     }
 
     if (hue > 15 && hue <= 50) {
-        if ((sat < 50 && lit < 50) || lit < 25) {
+        if ((sat < 50 && lit < 50) || (sat < 70 && lit < 30) || (lit < 25)) {
             return 'brown';
         }
         return 'orange';
@@ -84,6 +84,9 @@ function getColorCategory(hsl) {
     } else if (hue > 60 && hue <= 170) {
         return 'green';
     } else if (hue > 170 && hue <= 250) {
+        if((hue > 235 && lit > 70) || (hue > 245 && sat < 75)) {
+            return 'purple';
+        }
         return 'blue';
     } else if (hue > 250 && hue <= 315) {
         return 'purple';
