@@ -62,17 +62,18 @@ function populateColorList(source, size) {
        let url = "https://api.jsonbin.io/b/5f337ca11823333f8f2227f8";
        xmlhttp.onreadystatechange = function () {
            if(this.readyState == 4 && this.status == 200) {
-               colorList = JSON.parse(this.responseText);
-               colorList = this.responseText;
-               console.log(this.responseText[0]);
+               let parsedJSON = JSON.parse(this.responseText);
+               for(let i = 0; i< parsedJSON.length; i++) {
+                   colorList[i] = parsedJSON[i];
+               }
            }
        };
        xmlhttp.open("GET", url, false);
        xmlhttp.setRequestHeader("secret-key", "$2b$10$4Xk3G.7pdYGmKfnyzDEdeuDVMoO5B7jlPmH16vXCy8LR2PBxPkr9u");
        xmlhttp.send();
         //colorList = JSON.parse(data);
-        console.log(colorList);
-        console.log(colorList[0]);
+        //console.log(colorList);
+        //console.log(colorList[0]);
     }
 }
 
