@@ -67,3 +67,31 @@ In your email submission response to the test invitation from AngelList, please 
 Thanks and we look forward to your submission!
 
 ლ ( ◕  ᗜ  ◕ ) ლ
+
+
+# Reflections
+୧〳 ” ʘ̆ ᗜ ʘ̆ ” 〵୨
+
+I really enjoyed working on this application! While I think the overall quality of my code needs improvement, this was a perfect way to throw myself into learning javascript.
+
+This definitely took me longer to finish than it should have, but in my defense I spent a lot of time learning.
+
+I should note, for color conversions (hex -> rgb -> hsl) I snagged code from `https://css-tricks.com/converting-color-spaces-in-javascript/`.
+
+## Things I learned:
+- Laying out structure beforehand is important. I had to rewrite a bunch of code, because it wasn't set up for switching between the grid & detail views.
+- For this app, any questions I had were inherently pretty basic. So, most of my questions had answers on youtube and stackoverflow. However, sometimes these answers meant nothing to me, because I didn't fully understand why I had an error.
+- Diving straight in w/o a plan = no bueno.
+
+## Things to improve:
+- Organized code: I found that when I was making adjustments on my code, I found it quite difficult to navigate to where I needed to go.
+- Intentional code: Some of my code I sort of just threw at the wall, hoping it would form properly. Next time it will make things easier if I think things out beforehand.
+- Time efficiency: When I was trying to learn about a topic I found myself reading up on offshoots in order to try and get a better scope on the topic. However, this meant I spent a lot of time on things that weren't as important. I will need to be much more intention when learning about a topic in the future.
+
+## Things to investigate:
+- I'm not totally sure my pagination/view switching system is... proper.
+- In this case, it might have been better to split my javascript into multiple files.
+- Javascript files interacting w/ each other
+- JSON data retrieval: I wrote node.js code for successful JSON writing/reading, but when I tried adding it to my main.js file, things broke. In different cases, either `require()` wasn't defined (meaning that the node.js code wasn't working) or `document` was not defined (meaning that my html js code wasn't working). I need to figure out why I had to pivot to one or the other. 
+- Using Heroku: how the whole 'ecosystem' works. I thought I had node.js set up properly, but the `require()` method didn't seem to be working properly...
+- GraphQL
