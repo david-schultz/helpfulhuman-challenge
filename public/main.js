@@ -62,7 +62,8 @@ function populateColorList(source, size) {
        let url = "https://api.jsonbin.io/b/5f337ca11823333f8f2227f8";
        xmlhttp.onreadystatechange = function () {
            if(this.readyState == 4 && this.status == 200) {
-               colorList = JSON.parse(this.responseText);
+               //colorList = JSON.parse(this.responseText);
+               colorList = this.responseText;
                console.log(this.responseText);
            }
        };
