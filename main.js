@@ -3,7 +3,7 @@
  *
  */
 // file system
-//const fs = require('fs');
+const fs = require('fs');
 const sideBar = document.querySelector("#sidebarCell");
 const mainContainer = document.querySelector("#mainContainer");
 let colorList = new Array(); //hashmap?
@@ -51,7 +51,6 @@ function populateColorList(source, size) {
         }
     } else if (source.toLowerCase() === "database") {
 
-        const fs = require('fs');
         let rawdata = fs.readFileSync('./app.json', (err, data) => {
             if (err) {
                 console.log(err);

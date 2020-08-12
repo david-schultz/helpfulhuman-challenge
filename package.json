@@ -1,0 +1,26 @@
+{
+  "name": "helpfulhuman-challenge",
+  "version": "1.0.0",
+  "description": "Welcome to Helpful Human's at home proficiency challenge! This challenge gauges your knowledge on a few different metrics that we use, in part, to evaluate your skills. In this repo, you will find the assets that are required to replicate the design that is also included in this repo. Both .sketch and .png assets are available.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "start": "node app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/david-schultz/helpfulhuman-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/david-schultz/helpfulhuman-challenge/issues"
+  },
+  "homepage": "https://github.com/david-schultz/helpfulhuman-challenge#readme",
+  "dependencies": {
+    "node": "^14.7.0"
+  },
+  "engines": {
+    "node": "14.8.0"
+  }
+}
