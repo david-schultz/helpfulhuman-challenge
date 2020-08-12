@@ -50,13 +50,25 @@ function populateColorList(source, size) {
             colorList[i] = createColor(getRandomHex());
         }
     } else if (source.toLowerCase() === "database") {
+        /*
         const fs = require('fs');
-        let rawdata = fs.readFileSync('./app.json', (err, data) => {
+        let rawdata = fs.readFileSync('./data.json', (err, data) => {
             if (err) {
                 console.log(err);
             }
         });
-        colorList = JSON.parse(rawdata);
+        */
+       let xmlhttp = new XMLHttpRequest();
+       let url = "https://api.jsonbin.io/b/5f337ca11823333f8f2227f8";
+       xmlhttp.onreadystatechange = function () {
+           if(this.readyState == 4 && this.status == 200) {
+               colorList = JSON.parse(this.responseText);
+           }
+       };
+       xmlhttp.open("GET", url, true);
+       xmlhttp.send();
+        //colorList = JSON.parse(data);
+        console.log(colorList[0]);
     }
 }
 

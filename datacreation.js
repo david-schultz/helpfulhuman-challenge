@@ -9,7 +9,7 @@ let elementCount = 101;
 populateColorList("random", elementCount);
 const obj = JSON.stringify(colorList);
 console.log(obj);
-fs.writeFile('./app.json', obj, () => {
+fs.writeFile('./data.json', obj, () => {
     console.log('file was succesfully writ');
 });
 

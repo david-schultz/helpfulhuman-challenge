@@ -1,6 +1,6 @@
 
 const fs = require('fs');
-let rawdata =  fs.readFileSync('./colordata.txt', (err, data) => {
+let rawdata =  fs.readFileSync('./data.json', (err, data) => {
     if (err) {
         console.log(err);
     }

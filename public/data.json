@@ -1,0 +1,1618 @@
+[
+  {
+    "hexcode": "#339479",
+    "hsl": [
+      163,
+      49,
+      39
+    ],
+    "category": "green",
+    "tints": [
+      "#223f37",
+      "#2d6756",
+      "#339479",
+      "#33c79d",
+      "#4edfb6"
+    ]
+  },
+  {
+    "hexcode": "#9e5436",
+    "hsl": [
+      17,
+      49,
+      42
+    ],
+    "category": "orange",
+    "tints": [
+      "#483128",
+      "#714432",
+      "#9e5436",
+      "#cd653c",
+      "#e1815b"
+    ]
+  },
+  {
+    "hexcode": "#eeb9dd",
+    "hsl": [
+      319,
+      61,
+      83
+    ],
+    "category": "red",
+    "tints": [
+      "#c77aaf",
+      "#dd97c7",
+      "#eeb9dd",
+      "#f5c6e6",
+      "#fbd5ef"
+    ]
+  },
+  {
+    "hexcode": "#8b828b",
+    "hsl": [
+      300,
+      4,
+      53
+    ],
+    "category": "grey",
+    "tints": [
+      "#545454",
+      "#706b70",
+      "#8b828b",
+      "#ae93ae",
+      "#cbaacb"
+    ]
+  },
+  {
+    "hexcode": "#10f2f8",
+    "hsl": [
+      182,
+      94,
+      52
+    ],
+    "category": "blue",
+    "tints": [
+      "#158a8e",
+      "#11bfc5",
+      "#10f2f8",
+      "#40f6fc",
+      "#70faff"
+    ]
+  },
+  {
+    "hexcode": "#a2f6af",
+    "hsl": [
+      129,
+      82,
+      80
+    ],
+    "category": "green",
+    "tints": [
+      "#5ad86d",
+      "#7bea8c",
+      "#a2f6af",
+      "#d0fbd6",
+      "#ffffff"
+    ]
+  },
+  {
+    "hexcode": "#adee46",
+    "hsl": [
+      83,
+      83,
+      60
+    ],
+    "category": "green",
+    "tints": [
+      "#75a626",
+      "#95dd22",
+      "#adee46",
+      "#c2f570",
+      "#d7fa9e"
+    ]
+  },
+  {
+    "hexcode": "#83c3b1",
+    "hsl": [
+      163,
+      35,
+      64
+    ],
+    "category": "green",
+    "tints": [
+      "#5f8177",
+      "#6ca796",
+      "#83c3b1",
+      "#9fdbca",
+      "#c0ede0"
+    ]
+  },
+  {
+    "hexcode": "#12f8ad",
+    "hsl": [
+      160,
+      94,
+      52
+    ],
+    "category": "green",
+    "tints": [
+      "#158e66",
+      "#11c589",
+      "#12f8ad",
+      "#40fcbd",
+      "#70ffcf"
+    ]
+  },
+  {
+    "hexcode": "#c7598b",
+    "hsl": [
+      333,
+      50,
+      56
+    ],
+    "category": "red",
+    "tints": [
+      "#774059",
+      "#a44671",
+      "#c7598b",
+      "#dc74a3",
+      "#ed97be"
+    ]
+  },
+  {
+    "hexcode": "#004aab",
+    "hsl": [
+      214,
+      100,
+      34
+    ],
+    "category": "blue",
+    "tints": [
+      "#072040",
+      "#063674",
+      "#004aab",
+      "#0061e0",
+      "#147aff"
+    ]
+  },
+  {
+    "hexcode": "#854b42",
+    "hsl": [
+      8,
+      34,
+      39
+    ],
+    "category": "red",
+    "tints": [
+      "#372b2a",
+      "#5c3d38",
+      "#854b42",
+      "#b45546",
+      "#cf6d5e"
+    ]
+  },
+  {
+    "hexcode": "#e43b48",
+    "hsl": [
+      355,
+      76,
+      56
+    ],
+    "category": "red",
+    "tints": [
+      "#8f2831",
+      "#c32835",
+      "#e43b48",
+      "#f35e6a",
+      "#fd8791"
+    ]
+  },
+  {
+    "hexcode": "#327c44",
+    "hsl": [
+      135,
+      43,
+      34
+    ],
+    "category": "green",
+    "tints": [
+      "#1b2c20",
+      "#295133",
+      "#327c44",
+      "#35ac52",
+      "#40d465"
+    ]
+  },
+  {
+    "hexcode": "#44d649",
+    "hsl": [
+      122,
+      64,
+      55
+    ],
+    "category": "green",
+    "tints": [
+      "#328135",
+      "#35b139",
+      "#44d649",
+      "#64e868",
+      "#8af58d"
+    ]
+  },
+  {
+    "hexcode": "#57ba86",
+    "hsl": [
+      148,
+      42,
+      54
+    ],
+    "category": "green",
+    "tints": [
+      "#446a55",
+      "#4c946e",
+      "#57ba86",
+      "#73d3a0",
+      "#94e6ba"
+    ]
+  },
+  {
+    "hexcode": "#53a04f",
+    "hsl": [
+      117,
+      34,
+      47
+    ],
+    "category": "green",
+    "tints": [
+      "#3c4e3b",
+      "#4a7548",
+      "#53a04f",
+      "#66c261",
+      "#82d87d"
+    ]
+  },
+  {
+    "hexcode": "#c32c45",
+    "hsl": [
+      350,
+      63,
+      47
+    ],
+    "category": "red",
+    "tints": [
+      "#622731",
+      "#902c3d",
+      "#c32c45",
+      "#e1415c",
+      "#f1657c"
+    ]
+  },
+  {
+    "hexcode": "#694a19",
+    "hsl": [
+      37,
+      62,
+      25
+    ],
+    "category": "orange",
+    "tints": [
+      "#120e07",
+      "#3a2b12",
+      "#694a19",
+      "#9a6819",
+      "#d18915"
+    ]
+  },
+  {
+    "hexcode": "#6fb1ae",
+    "hsl": [
+      177,
+      30,
+      56
+    ],
+    "category": "blue",
+    "tints": [
+      "#536564",
+      "#5e8d8a",
+      "#6fb1ae",
+      "#86cbc8",
+      "#a3e0dd"
+    ]
+  },
+  {
+    "hexcode": "#dd4051",
+    "hsl": [
+      354,
+      70,
+      56
+    ],
+    "category": "red",
+    "tints": [
+      "#8a2e37",
+      "#bc2f3d",
+      "#dd4051",
+      "#ee6371",
+      "#f98b96"
+    ]
+  },
+  {
+    "hexcode": "#b99863",
+    "hsl": [
+      37,
+      38,
+      56
+    ],
+    "category": "orange",
+    "tints": [
+      "#6c604b",
+      "#967d54",
+      "#b99863",
+      "#d2b27f",
+      "#e5ca9e"
+    ]
+  },
+  {
+    "hexcode": "#1ead41",
+    "hsl": [
+      135,
+      70,
+      40
+    ],
+    "category": "green",
+    "tints": [
+      "#1a4d26",
+      "#1f7a36",
+      "#1ead41",
+      "#19e64d",
+      "#3df56b"
+    ]
+  },
+  {
+    "hexcode": "#6ff688",
+    "hsl": [
+      131,
+      88,
+      70
+    ],
+    "category": "green",
+    "tints": [
+      "#29d649",
+      "#49e967",
+      "#6ff688",
+      "#9efaaf",
+      "#cefdd6"
+    ]
+  },
+  {
+    "hexcode": "#b91011",
+    "hsl": [
+      360,
+      84,
+      39
+    ],
+    "category": "red",
+    "tints": [
+      "#111111",
+      "#131313",
+      "#b91011",
+      "#0f0f0f",
+      "#363636"
+    ]
+  },
+  {
+    "hexcode": "#e4dda1",
+    "hsl": [
+      54,
+      55,
+      76
+    ],
+    "category": "yellow",
+    "tints": [
+      "#b6ae68",
+      "#cfc881",
+      "#e4dda1",
+      "#f3eec4",
+      "#fcfbed"
+    ]
+  },
+  {
+    "hexcode": "#9400fe",
+    "hsl": [
+      275,
+      100,
+      50
+    ],
+    "category": "purple",
+    "tints": [
+      "#570f8a",
+      "#750ac2",
+      "#9400fe",
+      "#aa33ff",
+      "#bf66ff"
+    ]
+  },
+  {
+    "hexcode": "#c03b81",
+    "hsl": [
+      328,
+      53,
+      49
+    ],
+    "category": "red",
+    "tints": [
+      "#62324c",
+      "#8e3966",
+      "#c03b81",
+      "#d8559b",
+      "#ea76b4"
+    ]
+  },
+  {
+    "hexcode": "#fe029d",
+    "hsl": [
+      323,
+      99,
+      50
+    ],
+    "category": "red",
+    "tints": [
+      "#89105b",
+      "#c10b7b",
+      "#fe029d",
+      "#fe34b1",
+      "#fe67c4"
+    ]
+  },
+  {
+    "hexcode": "#b124f3",
+    "hsl": [
+      281,
+      90,
+      55
+    ],
+    "category": "purple",
+    "tints": [
+      "#701b98",
+      "#9417cf",
+      "#b124f3",
+      "#c551fb",
+      "#d780ff"
+    ]
+  },
+  {
+    "hexcode": "#442d0d",
+    "hsl": [
+      35,
+      68,
+      16
+    ],
+    "category": "brown",
+    "tints": [
+      "#1e160b",
+      "#30220d",
+      "#442d0d",
+      "#764b0f",
+      "#ad690b"
+    ]
+  },
+  {
+    "hexcode": "#0fcf7b",
+    "hsl": [
+      154,
+      86,
+      44
+    ],
+    "category": "green",
+    "tints": [
+      "#156643",
+      "#15995f",
+      "#0fcf7b",
+      "#21f298",
+      "#4ff8ae"
+    ]
+  },
+  {
+    "hexcode": "#0fc5e3",
+    "hsl": [
+      188,
+      88,
+      47
+    ],
+    "category": "blue",
+    "tints": [
+      "#166774",
+      "#1594a8",
+      "#0fc5e3",
+      "#2edbf5",
+      "#5ce5fa"
+    ]
+  },
+  {
+    "hexcode": "#52cb5e",
+    "hsl": [
+      126,
+      54,
+      56
+    ],
+    "category": "green",
+    "tints": [
+      "#3d7b43",
+      "#42a94c",
+      "#52cb5e",
+      "#71e07c",
+      "#95ef9e"
+    ]
+  },
+  {
+    "hexcode": "#8eecf0",
+    "hsl": [
+      182,
+      77,
+      75
+    ],
+    "category": "blue",
+    "tints": [
+      "#4bc9ce",
+      "#6adee2",
+      "#8eecf0",
+      "#b7f8fa",
+      "#e6feff"
+    ]
+  },
+  {
+    "hexcode": "#bbc630",
+    "hsl": [
+      64,
+      61,
+      48
+    ],
+    "category": "green",
+    "tints": [
+      "#61652a",
+      "#8c922f",
+      "#bbc630",
+      "#d6e048",
+      "#e7ef6b"
+    ]
+  },
+  {
+    "hexcode": "#a284b7",
+    "hsl": [
+      275,
+      26,
+      62
+    ],
+    "category": "purple",
+    "tints": [
+      "#6c6572",
+      "#887198",
+      "#a284b7",
+      "#bc9ed1",
+      "#d5bce6"
+    ]
+  },
+  {
+    "hexcode": "#a5de47",
+    "hsl": [
+      83,
+      70,
+      57
+    ],
+    "category": "green",
+    "tints": [
+      "#698e2f",
+      "#89c030",
+      "#a5de47",
+      "#bbee68",
+      "#d1f990"
+    ]
+  },
+  {
+    "hexcode": "#401557",
+    "hsl": [
+      279,
+      61,
+      21
+    ],
+    "category": "purple",
+    "tints": [
+      "#030204",
+      "#200e2a",
+      "#401557",
+      "#601787",
+      "#8214bd"
+    ]
+  },
+  {
+    "hexcode": "#363065",
+    "hsl": [
+      247,
+      36,
+      29
+    ],
+    "category": "blue",
+    "tints": [
+      "#14131b",
+      "#27243d",
+      "#363065",
+      "#403691",
+      "#4737c3"
+    ]
+  },
+  {
+    "hexcode": "#fcfe51",
+    "hsl": [
+      61,
+      99,
+      66
+    ],
+    "category": "green",
+    "tints": [
+      "#cfd219",
+      "#eff32b",
+      "#fcfe51",
+      "#fcfe85",
+      "#fdffb8"
+    ]
+  },
+  {
+    "hexcode": "#c660e8",
+    "hsl": [
+      285,
+      75,
+      64
+    ],
+    "category": "purple",
+    "tints": [
+      "#8f32ae",
+      "#b03dd6",
+      "#c660e8",
+      "#d984f5",
+      "#eaaffd"
+    ]
+  },
+  {
+    "hexcode": "#7dd32c",
+    "hsl": [
+      91,
+      65,
+      50
+    ],
+    "category": "green",
+    "tints": [
+      "#4b6f2a",
+      "#649e2e",
+      "#7dd32c",
+      "#96e64c",
+      "#b0f471"
+    ]
+  },
+  {
+    "hexcode": "#faae81",
+    "hsl": [
+      22,
+      92,
+      74
+    ],
+    "category": "orange",
+    "tints": [
+      "#de7335",
+      "#ee8f58",
+      "#faae81",
+      "#fdccaf",
+      "#ffece0"
+    ]
+  },
+  {
+    "hexcode": "#c5a341",
+    "hsl": [
+      45,
+      53,
+      51
+    ],
+    "category": "orange",
+    "tints": [
+      "#695c35",
+      "#967f3c",
+      "#c5a341",
+      "#dabb5d",
+      "#ebd07f"
+    ]
+  },
+  {
+    "hexcode": "#40a328",
+    "hsl": [
+      108,
+      61,
+      40
+    ],
+    "category": "green",
+    "tints": [
+      "#26481e",
+      "#357425",
+      "#40a328",
+      "#49da25",
+      "#67ec46"
+    ]
+  },
+  {
+    "hexcode": "#a66d89",
+    "hsl": [
+      331,
+      24,
+      54
+    ],
+    "category": "red",
+    "tints": [
+      "#5a5357",
+      "#806070",
+      "#a66d89",
+      "#c284a2",
+      "#daa0bc"
+    ]
+  },
+  {
+    "hexcode": "#6ad1aa",
+    "hsl": [
+      157,
+      53,
+      62
+    ],
+    "category": "green",
+    "tints": [
+      "#488e73",
+      "#50b991",
+      "#6ad1aa",
+      "#8be5c2",
+      "#b0f3d9"
+    ]
+  },
+  {
+    "hexcode": "#e02893",
+    "hsl": [
+      325,
+      75,
+      52
+    ],
+    "category": "red",
+    "tints": [
+      "#7e2559",
+      "#b12577",
+      "#e02893",
+      "#f04cac",
+      "#fb74c3"
+    ]
+  },
+  {
+    "hexcode": "#39b7a3",
+    "hsl": [
+      170,
+      53,
+      47
+    ],
+    "category": "red",
+    "tints": [
+      "#2e5c54",
+      "#368779",
+      "#39b7a3",
+      "#4cd6bf",
+      "#6de8d4"
+    ]
+  },
+  {
+    "hexcode": "#e5accc",
+    "hsl": [
+      326,
+      52,
+      79
+    ],
+    "category": "red",
+    "tints": [
+      "#b8759b",
+      "#d18fb4",
+      "#e5accc",
+      "#f4d2e5",
+      "#fefbfd"
+    ]
+  },
+  {
+    "hexcode": "#99a689",
+    "hsl": [
+      87,
+      14,
+      59
+    ],
+    "category": "green",
+    "tints": [
+      "#646b5b",
+      "#7e8b6f",
+      "#99a689",
+      "#b2c39d",
+      "#cbdcb7"
+    ]
+  },
+  {
+    "hexcode": "#4d460f",
+    "hsl": [
+      53,
+      67,
+      18
+    ],
+    "category": "yellow",
+    "tints": [
+      "#25230e",
+      "#38330f",
+      "#4d460f",
+      "#7e7210",
+      "#b5a20d"
+    ]
+  },
+  {
+    "hexcode": "#7c2e83",
+    "hsl": [
+      295,
+      48,
+      35
+    ],
+    "category": "purple",
+    "tints": [
+      "#2f1c31",
+      "#542858",
+      "#7c2e83",
+      "#aa30b5",
+      "#cd3eda"
+    ]
+  },
+  {
+    "hexcode": "#a5fca9",
+    "hsl": [
+      123,
+      94,
+      82
+    ],
+    "category": "green",
+    "tints": [
+      "#56e65e",
+      "#7cf482",
+      "#a5fca9",
+      "#b9febc",
+      "#ccffcf"
+    ]
+  },
+  {
+    "hexcode": "#669dd8",
+    "hsl": [
+      211,
+      59,
+      62
+    ],
+    "category": "blue",
+    "tints": [
+      "#416a95",
+      "#4983c1",
+      "#669dd8",
+      "#86b6e9",
+      "#add0f5"
+    ]
+  },
+  {
+    "hexcode": "#f3c3aa",
+    "hsl": [
+      21,
+      75,
+      81
+    ],
+    "category": "orange",
+    "tints": [
+      "#d28b65",
+      "#e5a785",
+      "#f3c3aa",
+      "#f9cfb8",
+      "#fedbc8"
+    ]
+  },
+  {
+    "hexcode": "#5f5366",
+    "hsl": [
+      278,
+      10,
+      36
+    ],
+    "category": "purple",
+    "tints": [
+      "#292929",
+      "#433f46",
+      "#5f5366",
+      "#7c5e8d",
+      "#986db0"
+    ]
+  },
+  {
+    "hexcode": "#de1bad",
+    "hsl": [
+      315,
+      78,
+      49
+    ],
+    "category": "purple",
+    "tints": [
+      "#751f5f",
+      "#a72085",
+      "#de1bad",
+      "#f23ac4",
+      "#fd62d7"
+    ]
+  },
+  {
+    "hexcode": "#92f55f",
+    "hsl": [
+      100,
+      88,
+      67
+    ],
+    "category": "green",
+    "tints": [
+      "#5dc926",
+      "#75e73c",
+      "#92f55f",
+      "#b3fa8f",
+      "#d3fdbf"
+    ]
+  },
+  {
+    "hexcode": "#a7d58e",
+    "hsl": [
+      99,
+      46,
+      70
+    ],
+    "category": "green",
+    "tints": [
+      "#76a15e",
+      "#8ebe74",
+      "#a7d58e",
+      "#c3e9af",
+      "#e0f6d5"
+    ]
+  },
+  {
+    "hexcode": "#970c11",
+    "hsl": [
+      358,
+      85,
+      32
+    ],
+    "category": "red",
+    "tints": [
+      "#320b0c",
+      "#620e11",
+      "#970c11",
+      "#c90d13",
+      "#f4151d"
+    ]
+  },
+  {
+    "hexcode": "#6bb01e",
+    "hsl": [
+      88,
+      71,
+      40
+    ],
+    "category": "green",
+    "tints": [
+      "#354d19",
+      "#507b1e",
+      "#6bb01e",
+      "#86e718",
+      "#9ff63c"
+    ]
+  },
+  {
+    "hexcode": "#715786",
+    "hsl": [
+      273,
+      21,
+      43
+    ],
+    "category": "purple",
+    "tints": [
+      "#3b3a3b",
+      "#554b5d",
+      "#715786",
+      "#8b62ac",
+      "#a57ac7"
+    ]
+  },
+  {
+    "hexcode": "#04ecfa",
+    "hsl": [
+      183,
+      97,
+      50
+    ],
+    "category": "blue",
+    "tints": [
+      "#128287",
+      "#0db6bf",
+      "#04ecfa",
+      "#35f3fd",
+      "#67f7fe"
+    ]
+  },
+  {
+    "hexcode": "#4cdfbc",
+    "hsl": [
+      166,
+      70,
+      59
+    ],
+    "category": "green",
+    "tints": [
+      "#32957e",
+      "#32c8a5",
+      "#4cdfbc",
+      "#71efd2",
+      "#99fae3"
+    ]
+  },
+  {
+    "hexcode": "#69cc38",
+    "hsl": [
+      100,
+      59,
+      51
+    ],
+    "category": "green",
+    "tints": [
+      "#456e30",
+      "#579c35",
+      "#69cc38",
+      "#85e057",
+      "#a2ef7b"
+    ]
+  },
+  {
+    "hexcode": "#e7f294",
+    "hsl": [
+      67,
+      78,
+      76
+    ],
+    "category": "green",
+    "tints": [
+      "#c1d04e",
+      "#d5e36d",
+      "#e7f294",
+      "#f3fbbc",
+      "#fcffeb"
+    ]
+  },
+  {
+    "hexcode": "#710246",
+    "hsl": [
+      323,
+      97,
+      23
+    ],
+    "category": "red",
+    "tints": [
+      "#0e0209",
+      "#3e0428",
+      "#710246",
+      "#a70267",
+      "#da0187"
+    ]
+  },
+  {
+    "hexcode": "#7ee736",
+    "hsl": [
+      96,
+      79,
+      56
+    ],
+    "category": "green",
+    "tints": [
+      "#519226",
+      "#65c624",
+      "#7ee736",
+      "#99f55b",
+      "#b6fe85"
+    ]
+  },
+  {
+    "hexcode": "#faaaf9",
+    "hsl": [
+      301,
+      89,
+      82
+    ],
+    "category": "purple",
+    "tints": [
+      "#e15bdf",
+      "#f07fee",
+      "#faaaf9",
+      "#fdbafc",
+      "#ffccfe"
+    ]
+  },
+  {
+    "hexcode": "#e52463",
+    "hsl": [
+      340,
+      79,
+      52
+    ],
+    "category": "red",
+    "tints": [
+      "#822142",
+      "#b52152",
+      "#e52463",
+      "#f44881",
+      "#fe71a0"
+    ]
+  },
+  {
+    "hexcode": "#ab9a24",
+    "hsl": [
+      52,
+      65,
+      41
+    ],
+    "category": "yellow",
+    "tints": [
+      "#4e471d",
+      "#7b6f24",
+      "#ab9a24",
+      "#e0c724",
+      "#f0da47"
+    ]
+  },
+  {
+    "hexcode": "#7b7ba8",
+    "hsl": [
+      240,
+      21,
+      57
+    ],
+    "category": "blue",
+    "tints": [
+      "#5d5d5f",
+      "#6b6b85",
+      "#7b7ba8",
+      "#9191c5",
+      "#acacdc"
+    ]
+  },
+  {
+    "hexcode": "#f90bd1",
+    "hsl": [
+      310,
+      95,
+      51
+    ],
+    "category": "purple",
+    "tints": [
+      "#8a1477",
+      "#c110a4",
+      "#f90bd1",
+      "#fc3bdc",
+      "#fe6ce6"
+    ]
+  },
+  {
+    "hexcode": "#612a9b",
+    "hsl": [
+      269,
+      57,
+      39
+    ],
+    "category": "purple",
+    "tints": [
+      "#301f42",
+      "#49276d",
+      "#612a9b",
+      "#7a29d1",
+      "#9446e7"
+    ]
+  },
+  {
+    "hexcode": "#cb3656",
+    "hsl": [
+      347,
+      59,
+      50
+    ],
+    "category": "red",
+    "tints": [
+      "#6a2f3c",
+      "#98344a",
+      "#cb3656",
+      "#df5371",
+      "#ef7690"
+    ]
+  },
+  {
+    "hexcode": "#0734b7",
+    "hsl": [
+      225,
+      93,
+      37
+    ],
+    "category": "blue",
+    "tints": [
+      "#0c1c4b",
+      "#0c287e",
+      "#0734b7",
+      "#053eeb",
+      "#255bfe"
+    ]
+  },
+  {
+    "hexcode": "#1dc0a3",
+    "hsl": [
+      169,
+      74,
+      43
+    ],
+    "category": "green",
+    "tints": [
+      "#1b5a4f",
+      "#1e8a76",
+      "#1dc0a3",
+      "#22ecc7",
+      "#48f9d9"
+    ]
+  },
+  {
+    "hexcode": "#e36445",
+    "hsl": [
+      12,
+      74,
+      58
+    ],
+    "category": "red",
+    "tints": [
+      "#95422d",
+      "#c94b2c",
+      "#e36445",
+      "#f28469",
+      "#fca792"
+    ]
+  },
+  {
+    "hexcode": "#8eb1e1",
+    "hsl": [
+      215,
+      58,
+      72
+    ],
+    "category": "blue",
+    "tints": [
+      "#567db3",
+      "#7096cd",
+      "#8eb1e1",
+      "#b2ccf0",
+      "#dbe8fb"
+    ]
+  },
+  {
+    "hexcode": "#ac61bc",
+    "hsl": [
+      289,
+      40,
+      56
+    ],
+    "category": "purple",
+    "tints": [
+      "#67496e",
+      "#8c5298",
+      "#ac61bc",
+      "#c47dd4",
+      "#d99de7"
+    ]
+  },
+  {
+    "hexcode": "#3e2fd4",
+    "hsl": [
+      245,
+      66,
+      51
+    ],
+    "category": "blue",
+    "tints": [
+      "#312b73",
+      "#382ea3",
+      "#3e2fd4",
+      "#5d50e7",
+      "#8075f5"
+    ]
+  },
+  {
+    "hexcode": "#4e24a7",
+    "hsl": [
+      259,
+      65,
+      40
+    ],
+    "category": "purple",
+    "tints": [
+      "#2b1c4a",
+      "#3d2277",
+      "#4e24a7",
+      "#5c20df",
+      "#7942f0"
+    ]
+  },
+  {
+    "hexcode": "#80e08c",
+    "hsl": [
+      128,
+      61,
+      69
+    ],
+    "category": "green",
+    "tints": [
+      "#4ab057",
+      "#61cc6f",
+      "#80e08c",
+      "#a3efae",
+      "#ccfad2"
+    ]
+  },
+  {
+    "hexcode": "#a728b2",
+    "hsl": [
+      295,
+      63,
+      43
+    ],
+    "category": "purple",
+    "tints": [
+      "#502154",
+      "#792881",
+      "#a728b2",
+      "#d030df",
+      "#e252ef"
+    ]
+  },
+  {
+    "hexcode": "#61ef4c",
+    "hsl": [
+      112,
+      84,
+      62
+    ],
+    "category": "green",
+    "tints": [
+      "#39b027",
+      "#42df2a",
+      "#61ef4c",
+      "#8af679",
+      "#b2fba7"
+    ]
+  },
+  {
+    "hexcode": "#e4fa42",
+    "hsl": [
+      67,
+      95,
+      62
+    ],
+    "category": "green",
+    "tints": [
+      "#a9bb1b",
+      "#d4ed1d",
+      "#e4fa42",
+      "#edfd72",
+      "#f4ffa4"
+    ]
+  },
+  {
+    "hexcode": "#998793",
+    "hsl": [
+      320,
+      8,
+      56
+    ],
+    "category": "grey",
+    "tints": [
+      "#5c5c5c",
+      "#7a7177",
+      "#998793",
+      "#b899ae",
+      "#d3b1c8"
+    ]
+  },
+  {
+    "hexcode": "#20497b",
+    "hsl": [
+      213,
+      59,
+      30
+    ],
+    "category": "blue",
+    "tints": [
+      "#101923",
+      "#1a314c",
+      "#20497b",
+      "#205fac",
+      "#1b75e4"
+    ]
+  },
+  {
+    "hexcode": "#ca545c",
+    "hsl": [
+      356,
+      53,
+      56
+    ],
+    "category": "red",
+    "tints": [
+      "#7a3e42",
+      "#a8434a",
+      "#ca545c",
+      "#df7279",
+      "#ee959b"
+    ]
+  },
+  {
+    "hexcode": "#e1707f",
+    "hsl": [
+      352,
+      65,
+      66
+    ],
+    "category": "red",
+    "tints": [
+      "#aa414f",
+      "#cd5162",
+      "#e1707f",
+      "#f094a0",
+      "#fabdc5"
+    ]
+  },
+  {
+    "hexcode": "#340e0c",
+    "hsl": [
+      3,
+      63,
+      13
+    ],
+    "category": "brown",
+    "tints": [
+      "#1a0b0a",
+      "#270d0c",
+      "#340e0c",
+      "#651410",
+      "#9a150e"
+    ]
+  },
+  {
+    "hexcode": "#783a03",
+    "hsl": [
+      28,
+      95,
+      24
+    ],
+    "category": "brown",
+    "tints": [
+      "#120a03",
+      "#422205",
+      "#783a03",
+      "#ab5103",
+      "#df6901"
+    ]
+  },
+  {
+    "hexcode": "#840c9b",
+    "hsl": [
+      290,
+      86,
+      33
+    ],
+    "category": "purple",
+    "tints": [
+      "#300b37",
+      "#580e67",
+      "#840c9b",
+      "#af0ccf",
+      "#d119f5"
+    ]
+  },
+  {
+    "hexcode": "#092e56",
+    "hsl": [
+      211,
+      81,
+      19
+    ],
+    "category": "blue",
+    "tints": [
+      "#0b1b2d",
+      "#0b2541",
+      "#092e56",
+      "#0b4889",
+      "#0b60bc"
+    ]
+  },
+  {
+    "hexcode": "#a2e736",
+    "hsl": [
+      83,
+      79,
+      56
+    ],
+    "category": "green",
+    "tints": [
+      "#689226",
+      "#88c624",
+      "#a2e736",
+      "#baf55b",
+      "#d0fe85"
+    ]
+  },
+  {
+    "hexcode": "#39ecda",
+    "hsl": [
+      174,
+      82,
+      57
+    ],
+    "category": "blue",
+    "tints": [
+      "#24998d",
+      "#22cebd",
+      "#39ecda",
+      "#62f3e5",
+      "#90f9ef"
+    ]
+  },
+  {
+    "hexcode": "#d350a7",
+    "hsl": [
+      320,
+      60,
+      57
+    ],
+    "category": "red",
+    "tints": [
+      "#84396b",
+      "#b43c8c",
+      "#d350a7",
+      "#e670be",
+      "#f395d4"
+    ]
+  },
+  {
+    "hexcode": "#f6f8e0",
+    "hsl": [
+      65,
+      63,
+      93
+    ],
+    "category": "green",
+    "tints": [
+      "#d3d89d",
+      "#e7ebbd",
+      "#f6f8e0",
+      "#fbfced",
+      "#fefffa"
+    ]
+  },
+  {
+    "hexcode": "#f35b50",
+    "hsl": [
+      4,
+      87,
+      63
+    ],
+    "category": "red",
+    "tints": [
+      "#b72e24",
+      "#e3372b",
+      "#f35b50",
+      "#f8847c",
+      "#fcb1ab"
+    ]
+  }
+]
