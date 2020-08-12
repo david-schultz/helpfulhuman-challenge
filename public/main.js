@@ -66,6 +66,7 @@ function populateColorList(source, size) {
            }
        };
        xmlhttp.open("GET", url, true);
+       xmlhttp.setRequestHeader("secret-key", "$2b$10$4Xk3G.7pdYGmKfnyzDEdeuDVMoO5B7jlPmH16vXCy8LR2PBxPkr9u");
        xmlhttp.send();
         //colorList = JSON.parse(data);
         console.log(colorList[0]);
