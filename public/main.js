@@ -3,7 +3,7 @@
  *
  */
 // file system
-const fs = require('fs');
+//const fs = require('fs');
 const sideBar = document.querySelector("#sidebarCell");
 const mainContainer = document.querySelector("#mainContainer");
 let colorList = new Array(); //hashmap?
